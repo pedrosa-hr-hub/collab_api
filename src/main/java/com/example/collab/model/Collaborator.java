@@ -165,7 +165,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String Cursos;
+    private String Curso;
 
     @Getter
     @Setter
