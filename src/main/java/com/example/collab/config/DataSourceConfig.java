@@ -14,9 +14,9 @@ public class DataSourceConfig {
     public DataSource dataSource() {
         Dotenv dotenv = Dotenv.load(); // carrega o .env
 
-        String url = dotenv.get("DB_URL");
-        String username = dotenv.get("DB_USERNAME");
-        String password = dotenv.get("DB_PASSWORD");
+        String url = dotenv.get("DB_URL"); // pega a variavel DB_URL do arquivo .env
+        String username = dotenv.get("DB_USERNAME"); // pega a variavel DB_USERNAME do arquivo .env
+        String password = dotenv.get("DB_PASSWORD"); // pega a variavel DB_PASSWORD do arquivo .env
 
         if (url == null || username == null || password == null) {
             throw new RuntimeException("Variáveis de ambiente do banco não foram encontradas no .env");
