@@ -25,19 +25,19 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String Nome;
+    private String nome;
 
     @Getter
     @Setter
-    private Date DataNascimento;
+    private Date dataNascimento;
 
     @Getter
     @Setter
-    private String EstadoCivil;
+    private String estadoCivil;
 
     @Getter
     @Setter
-    private String Nacionalidade;
+    private String nacionalidade;
 
     // ------------------------------------------------------------------//
 
@@ -45,15 +45,15 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String Email;
+    private String email;
 
     @Getter
     @Setter
-    private String Telefone;
+    private String telefone;
 
     @Getter
     @Setter
-    private String Endereco;
+    private String endereco;
 
     // ------------------------------------------------------------------//
 
@@ -61,31 +61,31 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String Cargo;
+    private String cargo;
 
     @Getter
     @Setter
-    private String Departamento;
+    private String departamento;
 
     @Getter
     @Setter
-    private Date DataAdmissao;
+    private Date dataAdmissao;
 
     @Getter
     @Setter
-    private String TipoContrato;
+    private String tipoContrato;
 
     @Getter
     @Setter
-    private Double Salario;
+    private Double salario;
 
     @Getter
     @Setter
-    private String Matricula;
+    private String matricula;
 
     @Getter
     @Setter
-    private String CargaHoraria;
+    private String cargaHoraria;
 
     // ------------------------------------------------------------------//
 
@@ -93,23 +93,23 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String Banco;
+    private String banco;
 
     @Getter
     @Setter
-    private String Agencia;
+    private String agencia;
 
     @Getter
     @Setter
-    private String Conta;
+    private String conta;
 
     @Getter
     @Setter
-    private String TipoConta;
+    private String tipoConta;
 
     @Getter
     @Setter
-    private String Pix;
+    private String pix;
 
     // ------------------------------------------------------------------//
 
@@ -117,15 +117,15 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String CarteiraTrabalho;
+    private String carteiraTrabalho;
 
     @Getter
     @Setter
-    private String TituloEleitor;
+    private String tituloEleitor;
 
     @Getter
     @Setter
-    private String CertificadoReservista;
+    private String certificadoReservista;
 
     @Getter
     @Setter
@@ -149,11 +149,11 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String ContatoEmergencia;
+    private String contatoEmergencia;
 
     @Getter
     @Setter
-    private String TelefoneEmergencia;
+    private String telefoneEmergencia;
 
     // ------------------------------------------------------------------//
 
@@ -161,13 +161,13 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String Escolaridade;
+    private String escolaridade;
 
     @Getter
     @Setter
-    private String Curso;
+    private String curso;
 
     @Getter
     @Setter
-    private String Observacoes;
+    private String observacoes;
 }
