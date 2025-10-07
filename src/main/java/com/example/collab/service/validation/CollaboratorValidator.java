@@ -46,10 +46,6 @@ public class CollaboratorValidator {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Banco já cadastrado");
         }
 
-        if (collaboratorRepository.findByAgencia(agencia).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Agência já cadastrada");
-        }
-
         if (collaboratorRepository.findByConta(conta).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Conta já cadastrada");
         }
