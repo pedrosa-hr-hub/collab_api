@@ -3,11 +3,39 @@ package com.example.collab.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.collab.dto.CollaboratorDTO;
+import com.example.collab.model.Collaborator;
 import com.example.collab.repository.CollaboratorRepository;
+import com.example.collab.service.validation.CollaboratorValidator;
 
 @Service
 public class CollabService {
 
     @Autowired
     private CollaboratorRepository collaboratorRepository;
+
+    @Autowired
+    private CollaboratorValidator collaboratorValidator;
+
+    public CollaboratorDTO createCollaborator(CollaboratorDTO collaboratorDTO) {
+
+        collaboratorValidator.validateNewCollaboratorDocuments(
+                collaboratorDTO.CPF(),
+                collaboratorDTO.RG(),
+                collaboratorDTO.CNH(),
+                collaboratorDTO.PIS(),
+                collaboratorDTO.CarteiraTrabalho(),
+                collaboratorDTO.TituloEleitor());
+
+        collaboratorValidator.validateNewCollaboratorBank(
+                collaboratorDTO.Banco(),
+                collaboratorDTO.Conta(),
+                collaboratorDTO.Pix());
+
+        Collaborator collaborator = new Collaborator();
+
+        Collaborator savedCollaborator = collaboratorRepository.save(collaborator);
+
+        return new CollaboratorDTO();
+    }
 }
