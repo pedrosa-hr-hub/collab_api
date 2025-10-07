@@ -40,7 +40,7 @@ public class CollaboratorValidator {
 
     }
 
-    public void validateNewCollaboratorBank(String banco, String agencia, String conta, String tipoConta, String pix) {
+    public void validateNewCollaboratorBank(String banco, String conta, String pix) {
 
         if (collaboratorRepository.findByBanco(banco).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Banco já cadastrado");
