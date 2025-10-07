@@ -54,10 +54,6 @@ public class CollaboratorValidator {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Conta já cadastrada");
         }
 
-        if (collaboratorRepository.findByTipoConta(tipoConta).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tipo de Conta já cadastrado");
-        }
-
         if (collaboratorRepository.findByPix(pix).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Pix já cadastrado");
         }
