@@ -26,6 +26,18 @@ public class CollaboratorValidator {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "CNH já cadastrada");
         }
 
+        if (collaboratorRepository.findByPIS(PIS).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "PIS já cadastrado");
+        }
+
+        if (collaboratorRepository.findByCarteiraTrabalho(carteiraTrabalho).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Carteira de Trabalho já cadastrada");
+        }
+
+        if (collaboratorRepository.findByTituloEleitor(tituloEleitor).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Título de Eleitor já cadastrado");
+        }
+
     }
 
 }
