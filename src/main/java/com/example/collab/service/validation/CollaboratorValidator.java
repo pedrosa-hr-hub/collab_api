@@ -40,4 +40,28 @@ public class CollaboratorValidator {
 
     }
 
+    public void validateNewCollaboratorBank(String banco, String agencia, String conta, String tipoConta, String pix) {
+
+        if (collaboratorRepository.findByBanco(banco).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Banco já cadastrado");
+        }
+
+        if (collaboratorRepository.findByAgencia(agencia).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Agência já cadastrada");
+        }
+
+        if (collaboratorRepository.findByConta(conta).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Conta já cadastrada");
+        }
+
+        if (collaboratorRepository.findByTipoConta(tipoConta).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tipo de Conta já cadastrado");
+        }
+
+        if (collaboratorRepository.findByPix(pix).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Pix já cadastrado");
+        }
+
+    }
+
 }
