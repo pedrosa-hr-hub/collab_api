@@ -40,4 +40,6 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByEmail(String email);
 
+    void deleteByMatricula(Integer matricula);
+
 }
