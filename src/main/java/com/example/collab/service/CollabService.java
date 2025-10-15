@@ -43,8 +43,22 @@ public class CollabService {
 
     public List<CollaboratorDTO> getAllCollaborators() {
         List<Collaborator> collaborators = collaboratorRepository.findAll();
+
+        if (collaborators.isEmpty()) {
+            throw new RuntimeException("Nenhum colaborador encontrado");
+        }
+
         return collaborators.stream()
                 .map(collaborator -> new CollaboratorDTO())
                 .toList();
     }
+
+    public CollaboratorDTO getCollaboratorByMatricula(Integer matricula) {
+
+        Collaborator collaborator = collaboratorRepository.findByMatricula(matricula)
+                .orElseThrow(() -> new RuntimeException("Matricula não encontrada"));
+
+        return new CollaboratorDTO();
+    }
+
 }
