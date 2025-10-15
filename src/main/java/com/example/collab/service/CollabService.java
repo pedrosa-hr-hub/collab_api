@@ -77,4 +77,12 @@ public class CollabService {
         return new CollaboratorDTO();
     }
 
+    public void deleteCollaboratorbyMatricula(Integer matricula) {
+
+        Collaborator collaborator = collaboratorRepository.findByMatricula(matricula)
+                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
+
+        collaboratorRepository.deleteByMatricula(matricula);
+    }
+
 }
