@@ -61,4 +61,12 @@ public class CollabService {
         return new CollaboratorDTO();
     }
 
+    public CollaboratorDTO getCollaboratorByCPF(String CPF) {
+
+        Collaborator collaborator = collaboratorRepository.findByCPF(CPF)
+                .orElseThrow(() -> new RuntimeException("CPF não encontrado"));
+
+        return new CollaboratorDTO();
+    }
+
 }
