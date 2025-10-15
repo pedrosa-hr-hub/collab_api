@@ -69,4 +69,12 @@ public class CollabService {
         return new CollaboratorDTO();
     }
 
+    public CollaboratorDTO getCollaboratorByNome(String nome) {
+
+        Collaborator collaborator = collaboratorRepository.findByNome(nome)
+                .orElseThrow(() -> new RuntimeException("Nome não encontrado"));
+
+        return new CollaboratorDTO();
+    }
+
 }
