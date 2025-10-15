@@ -1,5 +1,7 @@
 package com.example.collab.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +39,12 @@ public class CollabService {
         Collaborator savedCollaborator = collaboratorRepository.save(collaborator);
 
         return new CollaboratorDTO();
+    }
+
+    public List<CollaboratorDTO> getAllCollaborators() {
+        List<Collaborator> collaborators = collaboratorRepository.findAll();
+        return collaborators.stream()
+                .map(collaborator -> new CollaboratorDTO())
+                .toList();
     }
 }
