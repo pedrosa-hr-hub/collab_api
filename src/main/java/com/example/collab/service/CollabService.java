@@ -85,4 +85,29 @@ public class CollabService {
         collaboratorRepository.deleteByMatricula(matricula);
     }
 
+    public CollaboratorDTO updateCollaborator(Integer matricula, CollaboratorDTO collaboratorDTO) {
+
+        Collaborator existingCollaborator = collaboratorRepository.findByMatricula(matricula)
+                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
+
+        existingCollaborator.setNome(collaboratorDTO.nome());
+        existingCollaborator.setEstadoCivil(collaboratorDTO.EstadoCivil());
+        existingCollaborator.setEmail(collaboratorDTO.Email());
+        existingCollaborator.setTelefone(collaboratorDTO.Telefone());
+        existingCollaborator.setEndereco(collaboratorDTO.Endereco());
+        existingCollaborator.setTipoConta(collaboratorDTO.TipoConta());
+        existingCollaborator.setBanco(collaboratorDTO.Banco());
+        existingCollaborator.setAgencia(collaboratorDTO.Agencia());
+        existingCollaborator.setConta(collaboratorDTO.Conta());
+        existingCollaborator.setContatoEmergencia(collaboratorDTO.ContatoEmergencia());
+        existingCollaborator.setTelefoneEmergencia(collaboratorDTO.TelefoneEmergencia());
+        existingCollaborator.setEscolaridade(collaboratorDTO.Escolaridade());
+        existingCollaborator.setCurso(collaboratorDTO.Curso());
+        existingCollaborator.setObservacoes(collaboratorDTO.Observacoes());
+
+        Collaborator updatedCollaborator = collaboratorRepository.save(existingCollaborator);
+
+        return new CollaboratorDTO();
+    }
+
 }
