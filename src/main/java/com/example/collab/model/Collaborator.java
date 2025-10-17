@@ -81,7 +81,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String matricula;
+    private Integer matricula;
 
     @Getter
     @Setter
