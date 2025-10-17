@@ -8,7 +8,7 @@ import com.example.collab.model.Collaborator;
 
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 
-    Optional<Collaborator> findByMatricula(Integer matricula);
+    Optional<Collaborator> findByMatricula(String matricula);
 
     Optional<Collaborator> findByDepartamento(String departamento);
 
@@ -39,7 +39,5 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
     Optional<Collaborator> findByNome(String nome);
 
     Optional<Collaborator> findByEmail(String email);
-
-    void deleteByMatricula(Integer matricula);
 
 }
