@@ -5,6 +5,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.collab.domain.Email;
 
 import com.example.collab.domain.model.Collaborator;
 import com.example.collab.dto.CollaboratorDTO;
@@ -96,7 +97,7 @@ public class CollabService {
 
         existingCollaborator.setNome(collaboratorDTO.nome());
         existingCollaborator.setEstadoCivil(collaboratorDTO.EstadoCivil());
-        existingCollaborator.setEmail(collaboratorDTO.Email());
+        existingCollaborator.setEmail(new Email(collaboratorDTO.Email()));
         existingCollaborator.setTelefone(collaboratorDTO.Telefone());
         existingCollaborator.setEndereco(collaboratorDTO.Endereco());
         existingCollaborator.setTipoConta(collaboratorDTO.TipoConta());
