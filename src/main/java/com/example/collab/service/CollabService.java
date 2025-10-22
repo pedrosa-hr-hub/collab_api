@@ -6,8 +6,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.collab.domain.model.Collaborator;
 import com.example.collab.dto.CollaboratorDTO;
-import com.example.collab.model.Collaborator;
 import com.example.collab.repository.CollaboratorRepository;
 import com.example.collab.service.validation.CollaboratorValidator;
 

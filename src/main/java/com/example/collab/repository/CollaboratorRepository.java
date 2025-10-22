@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.collab.model.Collaborator;
+import com.example.collab.domain.model.Collaborator;
 
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 
