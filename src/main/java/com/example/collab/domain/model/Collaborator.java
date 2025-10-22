@@ -1,4 +1,4 @@
-package com.example.collab.model;
+package com.example.collab.domain.model;
 
 import java.sql.Date;
 
