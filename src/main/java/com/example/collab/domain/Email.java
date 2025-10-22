@@ -1,15 +1,11 @@
 package com.example.collab.domain;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.Value;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 @Value
-@Getter
-@Setter
 public class Email {
     String email;
 
