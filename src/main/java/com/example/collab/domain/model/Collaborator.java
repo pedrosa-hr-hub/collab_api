@@ -2,6 +2,8 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
+import com.example.collab.domain.Email;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -45,7 +47,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String email;
+    private Email email;
 
     @Getter
     @Setter
