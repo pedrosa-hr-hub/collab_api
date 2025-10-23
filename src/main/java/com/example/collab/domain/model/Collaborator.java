@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import com.example.collab.domain.CPF;
 import com.example.collab.domain.Email;
+import com.example.collab.domain.RG;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -144,7 +145,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String RG;
+    private RG RG;
 
     // ------------------------------------------------------------------//
 
