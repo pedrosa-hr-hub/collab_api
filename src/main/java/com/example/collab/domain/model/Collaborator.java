@@ -5,6 +5,7 @@ import java.sql.Date;
 import com.example.collab.domain.CPF;
 import com.example.collab.domain.Email;
 import com.example.collab.domain.RG;
+import com.example.collab.domain.PIS;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -133,7 +134,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String PIS;
+    private PIS PIS;
 
     @Getter
     @Setter
