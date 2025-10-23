@@ -14,6 +14,7 @@ public class CPF {
             throw new IllegalArgumentException("CPF não pode ser nulo");
         }
 
+        // Limpa a formatação
         String cleanedCPF = cpf.replaceAll("\\D", "");
 
         // Validação de tamanho do CPF
