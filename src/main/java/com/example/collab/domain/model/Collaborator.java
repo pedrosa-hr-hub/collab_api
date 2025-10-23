@@ -2,6 +2,7 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
+import com.example.collab.domain.CPF;
 import com.example.collab.domain.Email;
 
 import jakarta.persistence.Entity;
@@ -139,7 +140,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String CPF;
+    private CPF CPF;
 
     @Getter
     @Setter
