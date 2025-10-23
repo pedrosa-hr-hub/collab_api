@@ -2,6 +2,7 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
+import com.example.collab.domain.CNH;
 import com.example.collab.domain.CPF;
 import com.example.collab.domain.Email;
 import com.example.collab.domain.RG;
@@ -138,7 +139,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String CNH;
+    private CNH CNH;
 
     @Getter
     @Setter
