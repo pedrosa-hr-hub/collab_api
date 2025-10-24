@@ -3,10 +3,10 @@ package com.example.collab.domain;
 import lombok.Value;
 
 @Value
-public class Pix {
+public class PIX {
     String chave;
 
-    public Pix(String chave) {
+    public PIX(String chave) {
         if (chave == null || chave.isBlank()) {
             throw new IllegalArgumentException("Chave PIX deve ser informada");
         }
@@ -23,7 +23,7 @@ public class Pix {
         }
         // Valida CNPJ
         if (chave.matches("\\d{14}")) {
-            return new CNPJ(chave).getCnpj() != null;// Adicione validação de CNPJ aqui, se necessário
+            return new CNPJ(chave).getCnpj() != null;// Reutiliza validação de CNPJ
         }
         // Valida e-mail
         if (chave.matches("^[\\w-.]+@[\\w-]+\\.[a-z]{2,}$")) {
