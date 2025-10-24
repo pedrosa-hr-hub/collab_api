@@ -4,8 +4,10 @@ import java.sql.Date;
 
 import com.example.collab.domain.CNH;
 import com.example.collab.domain.CPF;
+import com.example.collab.domain.CarteiraTrabalho;
 import com.example.collab.domain.Email;
 import com.example.collab.domain.RG;
+import com.example.collab.domain.TituloEleitor;
 import com.example.collab.domain.PIS;
 
 import jakarta.persistence.Entity;
@@ -123,11 +125,11 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String carteiraTrabalho;
+    private CarteiraTrabalho carteiraTrabalho;
 
     @Getter
     @Setter
-    private String tituloEleitor;
+    private TituloEleitor tituloEleitor;
 
     @Getter
     @Setter
