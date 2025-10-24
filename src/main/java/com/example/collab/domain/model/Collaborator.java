@@ -2,13 +2,19 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
+import com.example.collab.domain.Agencia;
+import com.example.collab.domain.Banco;
 import com.example.collab.domain.CNH;
 import com.example.collab.domain.CPF;
 import com.example.collab.domain.CarteiraTrabalho;
+import com.example.collab.domain.Conta;
 import com.example.collab.domain.Email;
 import com.example.collab.domain.RG;
+import com.example.collab.domain.Telefone;
+import com.example.collab.domain.TipoConta;
 import com.example.collab.domain.TituloEleitor;
 import com.example.collab.domain.PIS;
+import com.example.collab.domain.PIX;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -57,7 +63,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String telefone;
+    private Telefone telefone;
 
     @Getter
     @Setter
@@ -101,23 +107,23 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String banco;
+    private Banco banco;
 
     @Getter
     @Setter
-    private String agencia;
+    private Agencia agencia;
 
     @Getter
     @Setter
-    private String conta;
+    private Conta conta;
 
     @Getter
     @Setter
-    private String tipoConta;
+    private TipoConta tipoConta;
 
     @Getter
     @Setter
-    private String pix;
+    private PIX pix;
 
     // ------------------------------------------------------------------//
 
@@ -161,7 +167,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String telefoneEmergencia;
+    private Telefone telefoneEmergencia;
 
     // ------------------------------------------------------------------//
 
