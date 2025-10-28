@@ -2,19 +2,19 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
-import com.example.collab.domain.Agencia;
-import com.example.collab.domain.Banco;
-import com.example.collab.domain.CNH;
-import com.example.collab.domain.CPF;
-import com.example.collab.domain.CarteiraTrabalho;
-import com.example.collab.domain.Conta;
-import com.example.collab.domain.Email;
-import com.example.collab.domain.RG;
-import com.example.collab.domain.Telefone;
-import com.example.collab.domain.TipoConta;
-import com.example.collab.domain.TituloEleitor;
-import com.example.collab.domain.PIS;
-import com.example.collab.domain.PIX;
+import com.example.collab.domain.valueobject.bancario.Agencia;
+import com.example.collab.domain.valueobject.bancario.Banco;
+import com.example.collab.domain.valueobject.bancario.Conta;
+import com.example.collab.domain.valueobject.bancario.PIX;
+import com.example.collab.domain.valueobject.bancario.TipoConta;
+import com.example.collab.domain.valueobject.contato.Email;
+import com.example.collab.domain.valueobject.contato.Telefone;
+import com.example.collab.domain.valueobject.documento.CNH;
+import com.example.collab.domain.valueobject.documento.CPF;
+import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
+import com.example.collab.domain.valueobject.documento.PIS;
+import com.example.collab.domain.valueobject.documento.RG;
+import com.example.collab.domain.valueobject.documento.TituloEleitor;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

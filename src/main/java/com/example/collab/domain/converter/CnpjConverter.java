@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.CNPJ;
+import com.example.collab.domain.valueobject.documento.CNPJ;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

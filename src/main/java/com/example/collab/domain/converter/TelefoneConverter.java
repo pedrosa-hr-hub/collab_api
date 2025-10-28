@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.Telefone;
+import com.example.collab.domain.valueobject.contato.Telefone;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

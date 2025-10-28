@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.CarteiraTrabalho;
+import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

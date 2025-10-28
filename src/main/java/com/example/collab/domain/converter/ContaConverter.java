@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.Conta;
+import com.example.collab.domain.valueobject.bancario.Conta;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
