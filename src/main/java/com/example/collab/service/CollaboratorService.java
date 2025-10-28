@@ -2,7 +2,6 @@ package com.example.collab.service;
 
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,7 @@ import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
+import com.example.collab.mapper.CollaboratorMapper;
 import com.example.collab.repository.CollaboratorRepository;
 import com.example.collab.service.validation.CollaboratorValidator;
 
@@ -28,7 +28,7 @@ public class CollaboratorService {
     private CollaboratorValidator collaboratorValidator;
 
     @Autowired
-    private ModelMapper modelMapper;
+    private CollaboratorMapper collaboratorMapper;
 
     public CollaboratorResponseDTO createCollaborator(CollaboratorRequestDTO req) {
 
@@ -45,11 +45,11 @@ public class CollaboratorService {
                 req.getConta(),
                 req.getPix());
 
-        Collaborator collaborator = modelMapper.map(req, Collaborator.class);
+        Collaborator collaborator = collaboratorMapper.toEntity(req);
 
         Collaborator savedCollaborator = collaboratorRepository.save(collaborator);
 
-        return modelMapper.map(savedCollaborator, CollaboratorResponseDTO.class);
+        return collaboratorMapper.toResponse(savedCollaborator);
     }
 
     public List<CollaboratorResponseDTO> getAllCollaborators() {
@@ -59,7 +59,7 @@ public class CollaboratorService {
             throw new RuntimeException("Nenhum colaborador encontrado");
         }
         return collaborators.stream()
-                .map(collaborator -> modelMapper.map(collaborator, CollaboratorResponseDTO.class))
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
                 .toList();
     }
 
@@ -68,7 +68,7 @@ public class CollaboratorService {
         Collaborator collaborator = collaboratorRepository.findByMatricula(matricula)
                 .orElseThrow(() -> new RuntimeException("Matricula não encontrada"));
 
-        return modelMapper.map(collaborator, CollaboratorResponseDTO.class);
+        return collaboratorMapper.toResponse(collaborator);
     }
 
     public CollaboratorResponseDTO getCollaboratorByCPF(String CPF) {
@@ -76,7 +76,7 @@ public class CollaboratorService {
         Collaborator collaborator = collaboratorRepository.findByCPF(CPF)
                 .orElseThrow(() -> new RuntimeException("CPF não encontrado"));
 
-        return modelMapper.map(collaborator, CollaboratorResponseDTO.class);
+        return collaboratorMapper.toResponse(collaborator);
     }
 
     public CollaboratorResponseDTO getCollaboratorByNome(String nome) {
@@ -84,7 +84,7 @@ public class CollaboratorService {
         Collaborator collaborator = collaboratorRepository.findByNome(nome)
                 .orElseThrow(() -> new RuntimeException("Nome não encontrado"));
 
-        return modelMapper.map(collaborator, CollaboratorResponseDTO.class);
+        return collaboratorMapper.toResponse(collaborator);
     }
 
     public void deleteCollaboratorbyMatricula(Integer matricula) {
@@ -117,7 +117,7 @@ public class CollaboratorService {
 
         Collaborator updatedCollaborator = collaboratorRepository.save(existingCollaborator);
 
-        return modelMapper.map(updatedCollaborator, CollaboratorResponseDTO.class);
+        return collaboratorMapper.toResponse(updatedCollaborator);
     }
 
 }
