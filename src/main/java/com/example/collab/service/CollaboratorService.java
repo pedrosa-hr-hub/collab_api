@@ -41,7 +41,6 @@ public class CollaboratorService {
                 req.getTituloEleitor());
 
         collaboratorValidator.validateNewCollaboratorBank(
-                req.getBanco(),
                 req.getConta(),
                 req.getPix());
 
