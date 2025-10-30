@@ -58,7 +58,7 @@ public class CollaboratorValidator {
 
     }
 
-    public void validateNewCollaboratorBank(String banco, String conta, String pix) {
+    public void validateNewCollaboratorBank(String conta, String pix) {
 
         if (collaboratorRepository.findByConta(conta).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Conta already exists");
