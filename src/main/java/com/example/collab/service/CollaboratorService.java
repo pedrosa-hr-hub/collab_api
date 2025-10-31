@@ -14,6 +14,7 @@ import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
+import com.example.collab.exception.domain.InvalidCollaboratorException;
 import com.example.collab.mapper.CollaboratorMapper;
 import com.example.collab.repository.CollaboratorRepository;
 import com.example.collab.service.validation.CollaboratorValidator;
@@ -46,9 +47,16 @@ public class CollaboratorService {
 
         Collaborator collaborator = collaboratorMapper.toEntity(req);
 
-        Collaborator savedCollaborator = collaboratorRepository.save(collaborator);
+        if (collaborator != null) {
 
-        return collaboratorMapper.toResponse(savedCollaborator);
+            Collaborator savedCollaborator = collaboratorRepository.save(collaborator);
+
+            return collaboratorMapper.toResponse(savedCollaborator);
+
+        }
+
+        throw new InvalidCollaboratorException("Error creating collaborator");
+
     }
 
     public List<CollaboratorResponseDTO> getAllCollaborators() {
@@ -68,6 +76,7 @@ public class CollaboratorService {
                 .orElseThrow(() -> new RuntimeException("Matricula não encontrada"));
 
         return collaboratorMapper.toResponse(collaborator);
+
     }
 
     public CollaboratorResponseDTO getCollaboratorByCPF(String CPF) {
@@ -76,6 +85,7 @@ public class CollaboratorService {
                 .orElseThrow(() -> new RuntimeException("CPF não encontrado"));
 
         return collaboratorMapper.toResponse(collaborator);
+
     }
 
     public CollaboratorResponseDTO getCollaboratorByNome(String nome) {
@@ -84,6 +94,7 @@ public class CollaboratorService {
                 .orElseThrow(() -> new RuntimeException("Nome não encontrado"));
 
         return collaboratorMapper.toResponse(collaborator);
+
     }
 
     public void deleteCollaboratorbyMatricula(Integer matricula) {
@@ -91,7 +102,14 @@ public class CollaboratorService {
         Collaborator collaborator = collaboratorRepository.findByMatricula(matricula)
                 .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
 
-        collaboratorRepository.delete(collaborator);
+        if (collaborator != null) {
+
+            collaboratorRepository.delete(collaborator);
+
+        }
+
+        throw new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula);
+
     }
 
     public CollaboratorResponseDTO updateCollaborator(Integer matricula, CollaboratorRequestDTO req) {
@@ -100,18 +118,31 @@ public class CollaboratorService {
                 .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
 
         existingCollaborator.setNome(req.getNome());
+
         existingCollaborator.setEstadoCivil(req.getEstadoCivil());
+
         existingCollaborator.setEmail(new Email(req.getEmail()));
+
         existingCollaborator.setTelefone(new Telefone(req.getTelefone()));
+
         existingCollaborator.setEndereco(req.getEndereco());
+
         existingCollaborator.setTipoConta(new TipoConta(req.getTipoConta()));
+
         existingCollaborator.setBanco(new Banco(req.getBanco()));
+
         existingCollaborator.setAgencia(new Agencia(req.getAgencia()));
+
         existingCollaborator.setConta(new Conta(req.getConta()));
+
         existingCollaborator.setContatoEmergencia(req.getContatoEmergencia());
+
         existingCollaborator.setTelefoneEmergencia(new Telefone(req.getTelefoneEmergencia()));
+
         existingCollaborator.setEscolaridade(req.getEscolaridade());
+
         existingCollaborator.setCurso(req.getCurso());
+
         existingCollaborator.setObservacoes(req.getObservacoes());
 
         Collaborator updatedCollaborator = collaboratorRepository.save(existingCollaborator);
