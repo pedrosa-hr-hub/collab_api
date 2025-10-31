@@ -18,7 +18,7 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    // RECURSO NÃO ENCONTRADO (HTTP 404)
+    // HTTP 404
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(NotFoundException ex, WebRequest req) {
 
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
 
     }
 
-    // REQUISIÇÃO INVÁLIDA (HTTP 400)
+    // HTTP 400
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ErrorResponse> handleBadRequest(BadRequestException ex, WebRequest req) {
 
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
 
     }
 
-    // VALOR DUPLICADO (HTTP 409)
+    // HTTP 409
     @ExceptionHandler(ConflictException.class)
     public ResponseEntity<ErrorResponse> handleConflict(ConflictException ex, WebRequest req) {
 
@@ -48,7 +48,7 @@ public class GlobalExceptionHandler {
 
     }
 
-    // DADOS INSERIDOS NÃO CONDIZEM COM O VALOR ESPERADO (HTTP 422)
+    // HTTP 422
     @ExceptionHandler({ UnprocessableEntityException.class, InvalidDocumentException.class })
     public ResponseEntity<ErrorResponse> handleUnprocessable(RuntimeException ex, WebRequest req) {
 
@@ -59,7 +59,7 @@ public class GlobalExceptionHandler {
 
     }
 
-    // ANOTAÇÃO NÃO ATENDIDA (HTTP 400)
+    // HTTP 400
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex, WebRequest req) {
 
@@ -67,18 +67,18 @@ public class GlobalExceptionHandler {
 
         ex.getBindingResult().getFieldErrors().forEach(err -> details.put(err.getField(), err.getDefaultMessage()));
 
-        var body = ErrorResponse.of(HttpStatus.BAD_REQUEST.value(), "Validation Error", "Erro de validação", path(req),
+        var body = ErrorResponse.of(HttpStatus.BAD_REQUEST.value(), "Validation Error", ex.getMessage(), path(req),
                 details);
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
 
     }
 
-    // NÃO MAPEADA (HTTP 500)
+    // HTTP 500
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneric(Exception ex, WebRequest req) {
 
-        var body = ErrorResponse.of(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error", "Erro interno",
+        var body = ErrorResponse.of(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error", ex.getMessage(),
                 path(req));
 
         return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
