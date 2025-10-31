@@ -1,8 +1,6 @@
 package com.example.collab.service.validation;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.example.collab.exception.domain.DuplicatedAccountException;
 import com.example.collab.exception.domain.DuplicatedCNHException;
@@ -64,11 +62,15 @@ public class CollaboratorValidator {
     public void validateNewCollaboratorBank(String conta, String pix) {
 
         if (collaboratorRepository.findByConta(conta).isPresent()) {
+
             throw new DuplicatedAccountException("Account already exists");
+
         }
 
         if (collaboratorRepository.findByPix(pix).isPresent()) {
+
             throw new DuplicatedPixException("Pix already exists");
+
         }
 
     }
