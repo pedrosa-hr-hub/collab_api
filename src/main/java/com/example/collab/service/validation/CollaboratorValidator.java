@@ -4,9 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.example.collab.exception.domain.DuplicatedAccountException;
 import com.example.collab.exception.domain.DuplicatedCNHException;
 import com.example.collab.exception.domain.DuplicatedCPFException;
 import com.example.collab.exception.domain.DuplicatedPISException;
+import com.example.collab.exception.domain.DuplicatedPixException;
 import com.example.collab.exception.domain.DuplicatedRGException;
 import com.example.collab.exception.domain.DuplicatedVoteRegistrationException;
 import com.example.collab.exception.domain.DuplicatedWorkWalletException;
@@ -18,7 +20,8 @@ public class CollaboratorValidator {
 
     private CollaboratorRepository collaboratorRepository;
 
-    public void validateNewCollaboratorDocuments(String cpf, String RG, String CNH, String PIS, String carteiraTrabalho, String tituloEleitor) {
+    public void validateNewCollaboratorDocuments(String cpf, String RG, String CNH, String PIS, String carteiraTrabalho,
+            String tituloEleitor) {
 
         if (collaboratorRepository.findByCPF(cpf).isPresent()) {
 
@@ -53,7 +56,7 @@ public class CollaboratorValidator {
         if (collaboratorRepository.findByTituloEleitor(tituloEleitor).isPresent()) {
 
             throw new DuplicatedVoteRegistrationException("Vote Registration Title already exists");
-            
+
         }
 
     }
@@ -61,11 +64,11 @@ public class CollaboratorValidator {
     public void validateNewCollaboratorBank(String conta, String pix) {
 
         if (collaboratorRepository.findByConta(conta).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Conta already exists");
+            throw new DuplicatedAccountException("Account already exists");
         }
 
         if (collaboratorRepository.findByPix(pix).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Pix already exists");
+            throw new DuplicatedPixException("Pix already exists");
         }
 
     }
