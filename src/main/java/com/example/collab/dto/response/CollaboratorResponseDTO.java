@@ -43,7 +43,7 @@ public class CollaboratorResponseDTO {
     // Bancárias (avalie expor ou não)
     private String bank;
     private String agency;
-    private String conta;
+    private String account;
     private String typeAccount;
     private String pix;
 

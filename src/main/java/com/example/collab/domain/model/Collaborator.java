@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import com.example.collab.domain.valueobject.banking.Agency;
 import com.example.collab.domain.valueobject.banking.Bank;
-import com.example.collab.domain.valueobject.banking.Conta;
+import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.PIX;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
@@ -115,7 +115,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Conta conta;
+    private Account account;
 
     @Getter
     @Setter

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component; // Permite registrar esta class
 import com.example.collab.domain.model.Collaborator;
 import com.example.collab.domain.valueobject.banking.Agency;
 import com.example.collab.domain.valueobject.banking.Bank;
-import com.example.collab.domain.valueobject.banking.Conta;
+import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.PIX;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Telefone;
@@ -41,8 +41,8 @@ public class CollaboratorMapper {
             c.setBank(new Bank(dto.getBank())); // Bank(código)
         if (nb(dto.getAgency()))
             c.setAgency(new Agency(dto.getAgency())); // Agency(número)
-        if (nb(dto.getConta()))
-            c.setConta(new Conta(dto.getConta())); // Conta(número)
+        if (nb(dto.getAccount()))
+            c.setAccount(new Account(dto.getAccount())); // Account(número)
         if (nb(dto.getTypeAccount()))
             c.setTypeAccount(new TypeAccount(dto.getTypeAccount())); // TypeAccount(tipo)
         if (nb(dto.getPix()))
@@ -96,8 +96,8 @@ public class CollaboratorMapper {
             c.setBank(nb(dto.getBank()) ? new Bank(dto.getBank()) : null);
         if (dto.getAgency() != null)
             c.setAgency(nb(dto.getAgency()) ? new Agency(dto.getAgency()) : null);
-        if (dto.getConta() != null)
-            c.setConta(nb(dto.getConta()) ? new Conta(dto.getConta()) : null);
+        if (dto.getAccount() != null)
+            c.setAccount(nb(dto.getAccount()) ? new Account(dto.getAccount()) : null);
         if (dto.getTypeAccount() != null)
             c.setTypeAccount(nb(dto.getTypeAccount()) ? new TypeAccount(dto.getTypeAccount()) : null);
         if (dto.getPix() != null)
@@ -131,7 +131,7 @@ public class CollaboratorMapper {
                 // Extrai valores primitivos dos VOs bancários
                 .bank(c.getBank() != null ? c.getBank().getCode() : null)
                 .agency(c.getAgency() != null ? c.getAgency().getNumber() : null)
-                .conta(c.getConta() != null ? c.getConta().getNumero() : null)
+                .account(c.getAccount() != null ? c.getAccount().getNumber() : null)
                 .typeAccount(c.getTypeAccount() != null ? c.getTypeAccount().getType() : null)
                 .pix(c.getPix() != null ? c.getPix().getChave() : null)
                 // Extrai valores dos documentos

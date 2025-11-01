@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.collab.domain.model.Collaborator;
 import com.example.collab.domain.valueobject.banking.Agency;
 import com.example.collab.domain.valueobject.banking.Bank;
-import com.example.collab.domain.valueobject.banking.Conta;
+import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
@@ -42,7 +42,7 @@ public class CollaboratorService {
                 req.getTituloEleitor());
 
         collaboratorValidator.validateNewCollaboratorBank(
-                req.getConta(),
+                req.getAccount(),
                 req.getPix());
 
         Collaborator collaborator = collaboratorMapper.toEntity(req);
@@ -133,7 +133,7 @@ public class CollaboratorService {
 
         existingCollaborator.setAgency(new Agency(req.getAgency()));
 
-        existingCollaborator.setConta(new Conta(req.getConta()));
+        existingCollaborator.setAccount(new Account(req.getAccount()));
 
         existingCollaborator.setContatoEmergencia(req.getContatoEmergencia());
 

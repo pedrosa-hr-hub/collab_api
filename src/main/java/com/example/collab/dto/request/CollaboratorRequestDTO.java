@@ -74,7 +74,7 @@ public class CollaboratorRequestDTO {
     private String agency;
 
     @Size(max = 20)
-    private String conta;
+    private String account;
 
     @Size(max = 20)
     private String typeAccount;
