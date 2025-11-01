@@ -77,7 +77,7 @@ public class CollaboratorRequestDTO {
     private String conta;
 
     @Size(max = 20)
-    private String tipoConta;
+    private String typeAccount;
 
     @Size(max = 100)
     private String pix;

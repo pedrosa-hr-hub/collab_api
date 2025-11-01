@@ -9,7 +9,7 @@ import com.example.collab.domain.model.Collaborator;
 import com.example.collab.domain.valueobject.bancario.Agencia;
 import com.example.collab.domain.valueobject.bancario.Banco;
 import com.example.collab.domain.valueobject.bancario.Conta;
-import com.example.collab.domain.valueobject.bancario.TipoConta;
+import com.example.collab.domain.valueobject.bancario.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
@@ -127,7 +127,7 @@ public class CollaboratorService {
 
         existingCollaborator.setEndereco(req.getEndereco());
 
-        existingCollaborator.setTipoConta(new TipoConta(req.getTipoConta()));
+        existingCollaborator.setTypeAccount(new TypeAccount(req.getTypeAccount()));
 
         existingCollaborator.setBanco(new Banco(req.getBanco()));
 

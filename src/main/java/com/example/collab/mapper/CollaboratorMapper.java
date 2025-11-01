@@ -8,7 +8,7 @@ import com.example.collab.domain.valueobject.bancario.Agencia;
 import com.example.collab.domain.valueobject.bancario.Banco;
 import com.example.collab.domain.valueobject.bancario.Conta;
 import com.example.collab.domain.valueobject.bancario.PIX;
-import com.example.collab.domain.valueobject.bancario.TipoConta;
+import com.example.collab.domain.valueobject.bancario.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Telefone;
 import com.example.collab.domain.valueobject.documento.CNH;
 import com.example.collab.domain.valueobject.documento.CPF;
@@ -43,8 +43,8 @@ public class CollaboratorMapper {
             c.setAgencia(new Agencia(dto.getAgencia())); // Agencia(número)
         if (nb(dto.getConta()))
             c.setConta(new Conta(dto.getConta())); // Conta(número)
-        if (nb(dto.getTipoConta()))
-            c.setTipoConta(new TipoConta(dto.getTipoConta())); // TipoConta(tipo)
+        if (nb(dto.getTypeAccount()))
+            c.setTypeAccount(new TypeAccount(dto.getTypeAccount())); // TypeAccount(tipo)
         if (nb(dto.getPix()))
             c.setPix(new PIX(dto.getPix())); // PIX(chave)
 
@@ -98,8 +98,8 @@ public class CollaboratorMapper {
             c.setAgencia(nb(dto.getAgencia()) ? new Agencia(dto.getAgencia()) : null);
         if (dto.getConta() != null)
             c.setConta(nb(dto.getConta()) ? new Conta(dto.getConta()) : null);
-        if (dto.getTipoConta() != null)
-            c.setTipoConta(nb(dto.getTipoConta()) ? new TipoConta(dto.getTipoConta()) : null);
+        if (dto.getTypeAccount() != null)
+            c.setTypeAccount(nb(dto.getTypeAccount()) ? new TypeAccount(dto.getTypeAccount()) : null);
         if (dto.getPix() != null)
             c.setPix(nb(dto.getPix()) ? new PIX(dto.getPix()) : null);
 
@@ -132,7 +132,7 @@ public class CollaboratorMapper {
                 .banco(c.getBanco() != null ? c.getBanco().getCodigo() : null)
                 .agencia(c.getAgencia() != null ? c.getAgencia().getNumero() : null)
                 .conta(c.getConta() != null ? c.getConta().getNumero() : null)
-                .tipoConta(c.getTipoConta() != null ? c.getTipoConta().getTipo() : null)
+                .typeAccount(c.getTypeAccount() != null ? c.getTypeAccount().getType() : null)
                 .pix(c.getPix() != null ? c.getPix().getChave() : null)
                 // Extrai valores dos documentos
                 .carteiraTrabalho(c.getCarteiraTrabalho() != null ? c.getCarteiraTrabalho().getNumero() : null)

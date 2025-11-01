@@ -6,7 +6,7 @@ import com.example.collab.domain.valueobject.bancario.Agencia;
 import com.example.collab.domain.valueobject.bancario.Banco;
 import com.example.collab.domain.valueobject.bancario.Conta;
 import com.example.collab.domain.valueobject.bancario.PIX;
-import com.example.collab.domain.valueobject.bancario.TipoConta;
+import com.example.collab.domain.valueobject.bancario.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
 import com.example.collab.domain.valueobject.documento.CNH;
@@ -119,7 +119,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private TipoConta tipoConta;
+    private TypeAccount typeAccount;
 
     @Getter
     @Setter

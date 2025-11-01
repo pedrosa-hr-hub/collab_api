@@ -44,7 +44,7 @@ public class CollaboratorResponseDTO {
     private String banco;
     private String agencia;
     private String conta;
-    private String tipoConta;
+    private String typeAccount;
     private String pix;
 
     // Documentos (avalie expor ou mascarar)
