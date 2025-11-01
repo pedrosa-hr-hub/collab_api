@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component; // Permite registrar esta class
 
 // Imports da entidade e dos Value Objects usados na montagem/conversão
 import com.example.collab.domain.model.Collaborator;
-import com.example.collab.domain.valueobject.bancario.Agencia;
+import com.example.collab.domain.valueobject.bancario.Agency;
 import com.example.collab.domain.valueobject.bancario.Banco;
 import com.example.collab.domain.valueobject.bancario.Conta;
 import com.example.collab.domain.valueobject.bancario.PIX;
@@ -39,8 +39,8 @@ public class CollaboratorMapper {
         // Monta os VOs bancários somente se houver String não vazia no DTO
         if (nb(dto.getBanco()))
             c.setBanco(new Banco(dto.getBanco())); // Banco(código)
-        if (nb(dto.getAgencia()))
-            c.setAgencia(new Agencia(dto.getAgencia())); // Agencia(número)
+        if (nb(dto.getAgency()))
+            c.setAgency(new Agency(dto.getAgency())); // Agency(número)
         if (nb(dto.getConta()))
             c.setConta(new Conta(dto.getConta())); // Conta(número)
         if (nb(dto.getTypeAccount()))
@@ -94,8 +94,8 @@ public class CollaboratorMapper {
         // valor, recria o VO
         if (dto.getBanco() != null)
             c.setBanco(nb(dto.getBanco()) ? new Banco(dto.getBanco()) : null);
-        if (dto.getAgencia() != null)
-            c.setAgencia(nb(dto.getAgencia()) ? new Agencia(dto.getAgencia()) : null);
+        if (dto.getAgency() != null)
+            c.setAgency(nb(dto.getAgency()) ? new Agency(dto.getAgency()) : null);
         if (dto.getConta() != null)
             c.setConta(nb(dto.getConta()) ? new Conta(dto.getConta()) : null);
         if (dto.getTypeAccount() != null)
@@ -130,7 +130,7 @@ public class CollaboratorMapper {
                 .cargaHoraria(c.getCargaHoraria()) // Copia carga horária
                 // Extrai valores primitivos dos VOs bancários
                 .banco(c.getBanco() != null ? c.getBanco().getCodigo() : null)
-                .agencia(c.getAgencia() != null ? c.getAgencia().getNumero() : null)
+                .agency(c.getAgency() != null ? c.getAgency().getNumber() : null)
                 .conta(c.getConta() != null ? c.getConta().getNumero() : null)
                 .typeAccount(c.getTypeAccount() != null ? c.getTypeAccount().getType() : null)
                 .pix(c.getPix() != null ? c.getPix().getChave() : null)

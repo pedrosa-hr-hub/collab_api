@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.collab.domain.model.Collaborator;
-import com.example.collab.domain.valueobject.bancario.Agencia;
+import com.example.collab.domain.valueobject.bancario.Agency;
 import com.example.collab.domain.valueobject.bancario.Banco;
 import com.example.collab.domain.valueobject.bancario.Conta;
 import com.example.collab.domain.valueobject.bancario.TypeAccount;
@@ -131,7 +131,7 @@ public class CollaboratorService {
 
         existingCollaborator.setBanco(new Banco(req.getBanco()));
 
-        existingCollaborator.setAgencia(new Agencia(req.getAgencia()));
+        existingCollaborator.setAgency(new Agency(req.getAgency()));
 
         existingCollaborator.setConta(new Conta(req.getConta()));
 

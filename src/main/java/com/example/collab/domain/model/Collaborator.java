@@ -2,7 +2,7 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
-import com.example.collab.domain.valueobject.bancario.Agencia;
+import com.example.collab.domain.valueobject.bancario.Agency;
 import com.example.collab.domain.valueobject.bancario.Banco;
 import com.example.collab.domain.valueobject.bancario.Conta;
 import com.example.collab.domain.valueobject.bancario.PIX;
@@ -111,7 +111,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Agencia agencia;
+    private Agency agency;
 
     @Getter
     @Setter
