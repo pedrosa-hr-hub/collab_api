@@ -1,4 +1,4 @@
-package com.example.collab.domain.valueobject.bancario;
+package com.example.collab.domain.valueobject.banking;
 
 import com.example.collab.exception.domain.InvalidDocumentException;
 

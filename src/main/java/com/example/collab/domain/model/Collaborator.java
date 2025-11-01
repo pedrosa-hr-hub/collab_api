@@ -2,11 +2,11 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
-import com.example.collab.domain.valueobject.bancario.Agency;
-import com.example.collab.domain.valueobject.bancario.Banco;
-import com.example.collab.domain.valueobject.bancario.Conta;
-import com.example.collab.domain.valueobject.bancario.PIX;
-import com.example.collab.domain.valueobject.bancario.TypeAccount;
+import com.example.collab.domain.valueobject.banking.Agency;
+import com.example.collab.domain.valueobject.banking.Banco;
+import com.example.collab.domain.valueobject.banking.Conta;
+import com.example.collab.domain.valueobject.banking.PIX;
+import com.example.collab.domain.valueobject.banking.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
 import com.example.collab.domain.valueobject.documento.CNH;

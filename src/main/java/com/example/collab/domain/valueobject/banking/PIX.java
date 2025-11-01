@@ -1,4 +1,4 @@
-package com.example.collab.domain.valueobject.bancario;
+package com.example.collab.domain.valueobject.banking;
 
 import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Telefone;
