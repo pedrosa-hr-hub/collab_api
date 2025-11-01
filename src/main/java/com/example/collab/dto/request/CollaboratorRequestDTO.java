@@ -68,7 +68,7 @@ public class CollaboratorRequestDTO {
 
     // Bancárias
     @Size(max = 3)
-    private String banco;
+    private String bank;
 
     @Size(max = 10)
     private String agency;

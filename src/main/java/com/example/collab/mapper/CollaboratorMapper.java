@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component; // Permite registrar esta class
 // Imports da entidade e dos Value Objects usados na montagem/conversão
 import com.example.collab.domain.model.Collaborator;
 import com.example.collab.domain.valueobject.banking.Agency;
-import com.example.collab.domain.valueobject.banking.Banco;
+import com.example.collab.domain.valueobject.banking.Bank;
 import com.example.collab.domain.valueobject.banking.Conta;
 import com.example.collab.domain.valueobject.banking.PIX;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
@@ -37,8 +37,8 @@ public class CollaboratorMapper {
         c.setCurso(dto.getCurso()); // curso
 
         // Monta os VOs bancários somente se houver String não vazia no DTO
-        if (nb(dto.getBanco()))
-            c.setBanco(new Banco(dto.getBanco())); // Banco(código)
+        if (nb(dto.getBank()))
+            c.setBank(new Bank(dto.getBank())); // Bank(código)
         if (nb(dto.getAgency()))
             c.setAgency(new Agency(dto.getAgency())); // Agency(número)
         if (nb(dto.getConta()))
@@ -92,8 +92,8 @@ public class CollaboratorMapper {
 
         // Se o campo veio null, não altera; se veio vazio, zera (seta null); se veio
         // valor, recria o VO
-        if (dto.getBanco() != null)
-            c.setBanco(nb(dto.getBanco()) ? new Banco(dto.getBanco()) : null);
+        if (dto.getBank() != null)
+            c.setBank(nb(dto.getBank()) ? new Bank(dto.getBank()) : null);
         if (dto.getAgency() != null)
             c.setAgency(nb(dto.getAgency()) ? new Agency(dto.getAgency()) : null);
         if (dto.getConta() != null)
@@ -129,7 +129,7 @@ public class CollaboratorMapper {
                 .matricula(c.getMatricula()) // Copia matrícula
                 .cargaHoraria(c.getCargaHoraria()) // Copia carga horária
                 // Extrai valores primitivos dos VOs bancários
-                .banco(c.getBanco() != null ? c.getBanco().getCodigo() : null)
+                .bank(c.getBank() != null ? c.getBank().getCode() : null)
                 .agency(c.getAgency() != null ? c.getAgency().getNumber() : null)
                 .conta(c.getConta() != null ? c.getConta().getNumero() : null)
                 .typeAccount(c.getTypeAccount() != null ? c.getTypeAccount().getType() : null)

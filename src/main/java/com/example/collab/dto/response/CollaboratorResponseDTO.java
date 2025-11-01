@@ -41,7 +41,7 @@ public class CollaboratorResponseDTO {
     private String cargaHoraria;
 
     // Bancárias (avalie expor ou não)
-    private String banco;
+    private String bank;
     private String agency;
     private String conta;
     private String typeAccount;
