@@ -1,7 +1,7 @@
 package com.example.collab.domain.valueobject.banking;
 
 import com.example.collab.domain.valueobject.contato.Email;
-import com.example.collab.domain.valueobject.contato.Telefone;
+import com.example.collab.domain.valueobject.contato.Phone;
 import com.example.collab.domain.valueobject.documento.CNPJ;
 import com.example.collab.domain.valueobject.documento.CPF;
 
@@ -36,7 +36,7 @@ public class PIX {
         }
         // Valida telefone
         if (chave.matches("\\+?\\d{1,3}\\d{10,11}")) {
-            return new Telefone(chave).getNumero() != null; // Reutiliza validação de telefone
+            return new Phone(chave).getNumber() != null; // Reutiliza validação de telefone
         }
         // Valida chave aleatória (UUID)
         return chave.matches("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}");

@@ -8,7 +8,7 @@ import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.PIX;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
-import com.example.collab.domain.valueobject.contato.Telefone;
+import com.example.collab.domain.valueobject.contato.Phone;
 import com.example.collab.domain.valueobject.documento.CNH;
 import com.example.collab.domain.valueobject.documento.CPF;
 import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
@@ -63,7 +63,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Telefone telefone;
+    private Phone phone;
 
     @Getter
     @Setter
@@ -167,7 +167,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Telefone telefoneEmergencia;
+    private Phone phoneEmergency;
 
     // ------------------------------------------------------------------//
 
