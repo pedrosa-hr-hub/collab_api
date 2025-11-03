@@ -9,7 +9,7 @@ import com.example.collab.domain.valueobject.banking.Bank;
 import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.PIX;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
-import com.example.collab.domain.valueobject.contato.Telefone;
+import com.example.collab.domain.valueobject.contato.Phone;
 import com.example.collab.domain.valueobject.documento.CNH;
 import com.example.collab.domain.valueobject.documento.CPF;
 import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
@@ -63,8 +63,8 @@ public class CollaboratorMapper {
             c.setRG(new RG(dto.getRG())); // RG
 
         // Monta VO de telefone de emergência, se informado
-        if (nb(dto.getTelefoneEmergencia()))
-            c.setTelefoneEmergencia(new Telefone(dto.getTelefoneEmergencia()));
+        if (nb(dto.getPhoneEmergency()))
+            c.setPhoneEmergency(new Phone(dto.getPhoneEmergency()));
 
         return c; // Retorna a entidade pronta para persistência
     }
@@ -117,8 +117,8 @@ public class CollaboratorMapper {
         if (dto.getRG() != null)
             c.setRG(nb(dto.getRG()) ? new RG(dto.getRG()) : null);
 
-        if (dto.getTelefoneEmergencia() != null)
-            c.setTelefoneEmergencia(nb(dto.getTelefoneEmergencia()) ? new Telefone(dto.getTelefoneEmergencia()) : null);
+        if (dto.getPhoneEmergency() != null)
+            c.setPhoneEmergency(nb(dto.getPhoneEmergency()) ? new Phone(dto.getPhoneEmergency()) : null);
     }
 
     // Converte a entidade em DTO de resposta, extraindo os valores dos VOs
@@ -144,7 +144,7 @@ public class CollaboratorMapper {
                 .RG(c.getRG() != null ? c.getRG().getRg() : null)
                 // Campos de emergência e adicionais
                 .contatoEmergencia(c.getContatoEmergencia())
-                .telefoneEmergencia(c.getTelefoneEmergencia() != null ? c.getTelefoneEmergencia().getNumero() : null)
+                .phoneEmergency(c.getPhoneEmergency() != null ? c.getPhoneEmergency().getNumber() : null)
                 .escolaridade(c.getEscolaridade())
                 .curso(c.getCurso())
                 .build(); // Finaliza a construção do DTO

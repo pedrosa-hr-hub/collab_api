@@ -38,7 +38,7 @@ public class CollaboratorRequestDTO {
     private String email;
 
     @Size(max = 20)
-    private String telefone;
+    private String phone;
 
     @Size(max = 255)
     private String endereco;
@@ -109,7 +109,7 @@ public class CollaboratorRequestDTO {
     private String contatoEmergencia;
 
     @Size(max = 20)
-    private String telefoneEmergencia;
+    private String phoneEmergency;
 
     // Adicionais
     @Size(max = 60)

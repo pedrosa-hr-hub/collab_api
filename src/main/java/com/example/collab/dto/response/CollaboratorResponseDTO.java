@@ -58,7 +58,7 @@ public class CollaboratorResponseDTO {
 
     // Emergência
     private String contatoEmergencia;
-    private String telefoneEmergencia;
+    private String phoneEmergency;
 
     // Adicionais
     private String escolaridade;

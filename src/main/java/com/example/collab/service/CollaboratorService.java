@@ -11,7 +11,7 @@ import com.example.collab.domain.valueobject.banking.Bank;
 import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
 import com.example.collab.domain.valueobject.contato.Email;
-import com.example.collab.domain.valueobject.contato.Telefone;
+import com.example.collab.domain.valueobject.contato.Phone;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.exception.domain.InvalidCollaboratorException;
@@ -123,7 +123,7 @@ public class CollaboratorService {
 
         existingCollaborator.setEmail(new Email(req.getEmail()));
 
-        existingCollaborator.setTelefone(new Telefone(req.getTelefone()));
+        existingCollaborator.setPhone(new Phone(req.getPhone()));
 
         existingCollaborator.setEndereco(req.getEndereco());
 
@@ -137,7 +137,7 @@ public class CollaboratorService {
 
         existingCollaborator.setContatoEmergencia(req.getContatoEmergencia());
 
-        existingCollaborator.setTelefoneEmergencia(new Telefone(req.getTelefoneEmergencia()));
+        existingCollaborator.setPhoneEmergency(new Phone(req.getPhoneEmergency()));
 
         existingCollaborator.setEscolaridade(req.getEscolaridade());
 
