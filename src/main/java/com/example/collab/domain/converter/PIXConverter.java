@@ -10,7 +10,7 @@ public class PIXConverter implements AttributeConverter<PIX, String> {
 
     @Override
     public String convertToDatabaseColumn(PIX attribute) {
-        return attribute != null ? attribute.getChave() : null;
+        return attribute != null ? attribute.getKey() : null;
     }
 
     @Override

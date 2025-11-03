@@ -133,7 +133,7 @@ public class CollaboratorMapper {
                 .agency(c.getAgency() != null ? c.getAgency().getNumber() : null)
                 .account(c.getAccount() != null ? c.getAccount().getNumber() : null)
                 .typeAccount(c.getTypeAccount() != null ? c.getTypeAccount().getType() : null)
-                .pix(c.getPix() != null ? c.getPix().getChave() : null)
+                .pix(c.getPix() != null ? c.getPix().getKey() : null)
                 // Extrai valores dos documentos
                 .carteiraTrabalho(c.getCarteiraTrabalho() != null ? c.getCarteiraTrabalho().getNumero() : null)
                 .tituloEleitor(c.getTituloEleitor() != null ? c.getTituloEleitor().getTitulo() : null)
