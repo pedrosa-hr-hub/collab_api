@@ -4,63 +4,64 @@ import com.example.collab.domain.valueobject.contato.Email;
 import com.example.collab.domain.valueobject.contato.Phone;
 import com.example.collab.domain.valueobject.documento.CNPJ;
 import com.example.collab.domain.valueobject.documento.CPF;
+import com.example.collab.exception.domain.InvalidDocumentException;
 
 import lombok.Value;
 
 @Value
 public class PIX {
 
-    String chave;
+    String key;
 
-    public PIX(String chave) {
+    public PIX(String key) {
 
-        if (chave == null || chave.isBlank()) {
+        if (key == null || key.isBlank()) {
 
-            throw new IllegalArgumentException("Chave PIX deve ser informada");
-
-        }
-        if (!isValidPix(chave)) {
-
-            throw new IllegalArgumentException("Chave PIX inválida");
+            throw new InvalidDocumentException("PIX key must be provided.");
 
         }
+        if (!isValidPix(key)) {
 
-        this.chave = chave;
+            throw new InvalidDocumentException("Invalid PIX key");
+
+        }
+
+        this.key = key;
 
     }
 
-    private boolean isValidPix(String chave) {
+    private boolean isValidPix(String key) {
 
         // Valida CPF
-        if (chave.matches("\\d{11}")) {
+        if (key.matches("\\d{11}")) {
 
-            return new CPF(chave).getCpf() != null; // Reutiliza validação de CPF
+            return new CPF(key).getCpf() != null; // Reutiliza validação de CPF
 
         }
 
         // Valida CNPJ
-        if (chave.matches("\\d{14}")) {
+        if (key.matches("\\d{14}")) {
 
-            return new CNPJ(chave).getCnpj() != null;// Reutiliza validação de CNPJ
+            return new CNPJ(key).getCnpj() != null;// Reutiliza validação de CNPJ
 
         }
 
         // Valida e-mail
-        if (chave.matches("^[\\w-.]+@[\\w-]+\\.[a-z]{2,}$")) {
+        if (key.matches("^[\\w-.]+@[\\w-]+\\.[a-z]{2,}$")) {
 
-            return new Email(chave).getEmail() != null; // Reutiliza validação de e-mail
+            return new Email(key).getEmail() != null; // Reutiliza validação de e-mail
 
         }
 
         // Valida telefone
-        if (chave.matches("\\+?\\d{1,3}\\d{10,11}")) {
+        if (key.matches("\\+?\\d{1,3}\\d{10,11}")) {
 
-            return new Phone(chave).getNumber() != null; // Reutiliza validação de telefone
+            return new Phone(key).getNumber() != null; // Reutiliza validação de telefone
 
         }
 
         // Valida chave aleatória (UUID)
-        return chave.matches("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
+        return key.matches("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
 
     }
 }
