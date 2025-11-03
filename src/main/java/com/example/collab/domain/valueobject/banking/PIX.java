@@ -1,7 +1,7 @@
 package com.example.collab.domain.valueobject.banking;
 
-import com.example.collab.domain.valueobject.contato.Email;
-import com.example.collab.domain.valueobject.contato.Phone;
+import com.example.collab.domain.valueobject.contact.Email;
+import com.example.collab.domain.valueobject.contact.Phone;
 import com.example.collab.domain.valueobject.documento.CNPJ;
 import com.example.collab.domain.valueobject.documento.CPF;
 import com.example.collab.exception.domain.InvalidDocumentException;

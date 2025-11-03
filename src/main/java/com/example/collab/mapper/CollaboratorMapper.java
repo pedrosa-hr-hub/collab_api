@@ -9,7 +9,7 @@ import com.example.collab.domain.valueobject.banking.Bank;
 import com.example.collab.domain.valueobject.banking.Account;
 import com.example.collab.domain.valueobject.banking.PIX;
 import com.example.collab.domain.valueobject.banking.TypeAccount;
-import com.example.collab.domain.valueobject.contato.Phone;
+import com.example.collab.domain.valueobject.contact.Phone;
 import com.example.collab.domain.valueobject.documento.CNH;
 import com.example.collab.domain.valueobject.documento.CPF;
 import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;

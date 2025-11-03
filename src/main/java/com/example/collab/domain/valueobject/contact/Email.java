@@ -1,4 +1,4 @@
-package com.example.collab.domain.valueobject.contato;
+package com.example.collab.domain.valueobject.contact;
 
 import lombok.Value;
 
