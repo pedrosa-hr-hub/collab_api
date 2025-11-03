@@ -88,9 +88,9 @@ public class CollaboratorService {
 
     }
 
-    public CollaboratorResponseDTO getCollaboratorByNome(String nome) {
+    public CollaboratorResponseDTO getCollaboratorByName(String name) {
 
-        Collaborator collaborator = collaboratorRepository.findByNome(nome)
+        Collaborator collaborator = collaboratorRepository.findByName(name)
                 .orElseThrow(() -> new RuntimeException("Nome não encontrado"));
 
         return collaboratorMapper.toResponse(collaborator);
@@ -117,9 +117,9 @@ public class CollaboratorService {
         Collaborator existingCollaborator = collaboratorRepository.findByMatricula(matricula)
                 .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
 
-        existingCollaborator.setNome(req.getNome());
+        existingCollaborator.setName(req.getName());
 
-        existingCollaborator.setEstadoCivil(req.getEstadoCivil());
+        existingCollaborator.setMaritalStatus(req.getMaritalStatus());
 
         existingCollaborator.setEmail(new Email(req.getEmail()));
 

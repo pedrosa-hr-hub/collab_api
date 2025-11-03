@@ -39,19 +39,19 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String nome;
+    private String name;
 
     @Getter
     @Setter
-    private Date dataNascimento;
+    private Date birthDate;
 
     @Getter
     @Setter
-    private String estadoCivil;
+    private String maritalStatus;
 
     @Getter
     @Setter
-    private String nacionalidade;
+    private String nationality;
 
     // ------------------------------------------------------------------//
 

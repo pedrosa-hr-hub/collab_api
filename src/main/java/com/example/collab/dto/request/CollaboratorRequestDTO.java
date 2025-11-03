@@ -20,17 +20,17 @@ public class CollaboratorRequestDTO {
     // Identificação
     @NotBlank
     @Size(max = 120)
-    private String nome;
+    private String name;
 
     @Past
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataNascimento;
+    private LocalDate birthDate;
 
     @Size(max = 30)
-    private String estadoCivil;
+    private String maritalStatus;
 
     @Size(max = 60)
-    private String nacionalidade;
+    private String nationality;
 
     // Contato
     @Email

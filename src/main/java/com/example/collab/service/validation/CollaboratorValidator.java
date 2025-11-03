@@ -59,9 +59,9 @@ public class CollaboratorValidator {
 
     }
 
-    public void validateNewCollaboratorBank(String conta, String pix) {
+    public void validateNewCollaboratorBank(String account, String pix) {
 
-        if (collaboratorRepository.findByConta(conta).isPresent()) {
+        if (collaboratorRepository.findByAccount(account).isPresent()) {
 
             throw new DuplicatedAccountException("Account already exists");
 
