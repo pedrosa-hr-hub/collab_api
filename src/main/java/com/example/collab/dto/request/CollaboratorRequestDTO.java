@@ -84,7 +84,7 @@ public class CollaboratorRequestDTO {
 
     // Documentos
     @Size(max = 20)
-    private String carteiraTrabalho;
+    private String workWallet;
 
     @Size(max = 20)
     private String voterRegistration;

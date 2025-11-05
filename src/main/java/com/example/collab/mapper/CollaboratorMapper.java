@@ -51,7 +51,7 @@ public class CollaboratorMapper {
                 .pix(extract(c.getPix(), PIX::getKey))
                 // Documents
                 .carteiraTrabalho(extract(c.getCarteiraTrabalho(), CarteiraTrabalho::getNumero))
-                .voterRegistration(extract(c.getVoterRegistration(), VoterRegistration::getVoteId))
+                .tituloEleitor(extract(c.getTituloEleitor(), TituloEleitor::getTitulo))
                 .PIS(extract(c.getPIS(), PIS::getPis))
                 .CNH(extract(c.getCNH(), CNH::getCnh))
                 .CPF(extract(c.getCPF(), CPF::getCpf))
@@ -93,8 +93,8 @@ public class CollaboratorMapper {
     private void mapDocumentFields(CollaboratorRequestDTO dto, Collaborator c) {
         if (notBlank(dto.getCarteiraTrabalho()))
             c.setCarteiraTrabalho(new CarteiraTrabalho(dto.getCarteiraTrabalho()));
-        if (notBlank(dto.getVoterRegistration()))
-            c.setVoterRegistration(new VoterRegistration(dto.getVoterRegistration()));
+        if (notBlank(dto.getTituloEleitor()))
+            c.setTituloEleitor(new TituloEleitor(dto.getTituloEleitor()));
         if (notBlank(dto.getPIS()))
             c.setPIS(new PIS(dto.getPIS()));
         if (notBlank(dto.getCNH()))
@@ -149,8 +149,8 @@ public class CollaboratorMapper {
     private void updateDocumentFields(CollaboratorRequestDTO dto, Collaborator c) {
         if (dto.getCarteiraTrabalho() != null)
             c.setCarteiraTrabalho(createOrNull(dto.getCarteiraTrabalho(), CarteiraTrabalho::new));
-        if (dto.getVoterRegistration() != null)
-            c.setVoterRegistration(createOrNull(dto.getVoterRegistration(), VoterRegistration::new));
+        if (dto.getTituloEleitor() != null)
+            c.setTituloEleitor(createOrNull(dto.getTituloEleitor(), TituloEleitor::new));
         if (dto.getPIS() != null)
             c.setPIS(createOrNull(dto.getPIS(), PIS::new));
         if (dto.getCNH() != null)

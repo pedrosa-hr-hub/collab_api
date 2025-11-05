@@ -121,7 +121,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private CarteiraTrabalho carteiraTrabalho;
+    private WorkWallet workWallet;
 
     @Getter
     @Setter
