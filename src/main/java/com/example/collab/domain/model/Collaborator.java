@@ -2,19 +2,9 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
-import com.example.collab.domain.valueobject.banking.Agency;
-import com.example.collab.domain.valueobject.banking.Bank;
-import com.example.collab.domain.valueobject.banking.Account;
-import com.example.collab.domain.valueobject.banking.PIX;
-import com.example.collab.domain.valueobject.banking.TypeAccount;
-import com.example.collab.domain.valueobject.contact.Email;
-import com.example.collab.domain.valueobject.contact.Phone;
-import com.example.collab.domain.valueobject.documento.CNH;
-import com.example.collab.domain.valueobject.documento.CPF;
-import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
-import com.example.collab.domain.valueobject.documento.PIS;
-import com.example.collab.domain.valueobject.documento.RG;
-import com.example.collab.domain.valueobject.documento.TituloEleitor;
+import com.example.collab.domain.valueobject.banking.*;
+import com.example.collab.domain.valueobject.contact.*;
+import com.example.collab.domain.valueobject.documento.*;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -135,7 +125,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private TituloEleitor tituloEleitor;
+    private VoterRegistration voterRegistration;
 
     @Getter
     @Setter

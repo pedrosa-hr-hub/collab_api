@@ -49,7 +49,7 @@ public class CollaboratorResponseDTO {
 
     // Documentos (avalie expor ou mascarar)
     private String carteiraTrabalho;
-    private String tituloEleitor;
+    private String voterRegistration;
     private String certificadoReservista;
     private String PIS;
     private String CNH;

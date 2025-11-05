@@ -39,7 +39,7 @@ public class CollaboratorService {
                 req.getCNH(),
                 req.getPIS(),
                 req.getCarteiraTrabalho(),
-                req.getTituloEleitor());
+                req.getVoterRegistration());
 
         collaboratorValidator.validateNewCollaboratorBank(
                 req.getAccount(),

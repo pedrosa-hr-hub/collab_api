@@ -87,7 +87,7 @@ public class CollaboratorRequestDTO {
     private String carteiraTrabalho;
 
     @Size(max = 20)
-    private String tituloEleitor;
+    private String voterRegistration;
 
     @Size(max = 40)
     private String certificadoReservista;
