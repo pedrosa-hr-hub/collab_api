@@ -50,7 +50,7 @@ public class CollaboratorMapper {
                 .typeAccount(extract(c.getTypeAccount(), TypeAccount::getType))
                 .pix(extract(c.getPix(), PIX::getKey))
                 // Documents
-                .carteiraTrabalho(extract(c.getCarteiraTrabalho(), CarteiraTrabalho::getNumero))
+                .workWallet(extract(c.getWorkWallet(), WorkWallet::getNumber))
                 .tituloEleitor(extract(c.getTituloEleitor(), TituloEleitor::getTitulo))
                 .PIS(extract(c.getPIS(), PIS::getPis))
                 .CNH(extract(c.getCNH(), CNH::getCnh))
@@ -91,8 +91,8 @@ public class CollaboratorMapper {
 
     // Mapeia documentos (create)
     private void mapDocumentFields(CollaboratorRequestDTO dto, Collaborator c) {
-        if (notBlank(dto.getCarteiraTrabalho()))
-            c.setCarteiraTrabalho(new CarteiraTrabalho(dto.getCarteiraTrabalho()));
+        if (notBlank(dto.getWorkWallet()))
+            c.setWorkWallet(new WorkWallet(dto.getWorkWallet()));
         if (notBlank(dto.getTituloEleitor()))
             c.setTituloEleitor(new TituloEleitor(dto.getTituloEleitor()));
         if (notBlank(dto.getPIS()))
@@ -147,8 +147,8 @@ public class CollaboratorMapper {
 
     // Atualiza documentos (update)
     private void updateDocumentFields(CollaboratorRequestDTO dto, Collaborator c) {
-        if (dto.getCarteiraTrabalho() != null)
-            c.setCarteiraTrabalho(createOrNull(dto.getCarteiraTrabalho(), CarteiraTrabalho::new));
+        if (dto.getWorkWallet() != null)
+            c.setWorkWallet(createOrNull(dto.getWorkWallet(), WorkWallet::new));
         if (dto.getTituloEleitor() != null)
             c.setTituloEleitor(createOrNull(dto.getTituloEleitor(), TituloEleitor::new));
         if (dto.getPIS() != null)

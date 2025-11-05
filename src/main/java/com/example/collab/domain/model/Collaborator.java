@@ -11,7 +11,7 @@ import com.example.collab.domain.valueobject.contact.Email;
 import com.example.collab.domain.valueobject.contact.Phone;
 import com.example.collab.domain.valueobject.documento.CNH;
 import com.example.collab.domain.valueobject.documento.CPF;
-import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
+import com.example.collab.domain.valueobject.documento.WorkWallet;
 import com.example.collab.domain.valueobject.documento.PIS;
 import com.example.collab.domain.valueobject.documento.RG;
 import com.example.collab.domain.valueobject.documento.TituloEleitor;
@@ -131,7 +131,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private CarteiraTrabalho carteiraTrabalho;
+    private WorkWallet workWallet;
 
     @Getter
     @Setter

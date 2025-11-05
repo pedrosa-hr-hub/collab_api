@@ -38,7 +38,7 @@ public class CollaboratorService {
                 req.getRG(),
                 req.getCNH(),
                 req.getPIS(),
-                req.getCarteiraTrabalho(),
+                req.getWorkWallet(),
                 req.getTituloEleitor());
 
         collaboratorValidator.validateNewCollaboratorBank(

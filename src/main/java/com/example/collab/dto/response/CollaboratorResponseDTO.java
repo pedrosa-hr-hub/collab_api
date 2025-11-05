@@ -48,7 +48,7 @@ public class CollaboratorResponseDTO {
     private String pix;
 
     // Documentos (avalie expor ou mascarar)
-    private String carteiraTrabalho;
+    private String workWallet;
     private String tituloEleitor;
     private String certificadoReservista;
     private String PIS;
