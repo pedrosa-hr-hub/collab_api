@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.valueobject.contato.Email;
+import com.example.collab.domain.valueobject.contact.Email;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

@@ -20,17 +20,17 @@ public class CollaboratorRequestDTO {
     // Identificação
     @NotBlank
     @Size(max = 120)
-    private String nome;
+    private String name;
 
     @Past
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataNascimento;
+    private LocalDate birthDate;
 
     @Size(max = 30)
-    private String estadoCivil;
+    private String maritalStatus;
 
     @Size(max = 60)
-    private String nacionalidade;
+    private String nationality;
 
     // Contato
     @Email
@@ -38,7 +38,7 @@ public class CollaboratorRequestDTO {
     private String email;
 
     @Size(max = 20)
-    private String telefone;
+    private String phone;
 
     @Size(max = 255)
     private String endereco;
@@ -68,16 +68,16 @@ public class CollaboratorRequestDTO {
 
     // Bancárias
     @Size(max = 3)
-    private String banco;
+    private String bank;
 
     @Size(max = 10)
-    private String agencia;
+    private String agency;
 
     @Size(max = 20)
-    private String conta;
+    private String account;
 
     @Size(max = 20)
-    private String tipoConta;
+    private String typeAccount;
 
     @Size(max = 100)
     private String pix;
@@ -109,7 +109,7 @@ public class CollaboratorRequestDTO {
     private String contatoEmergencia;
 
     @Size(max = 20)
-    private String telefoneEmergencia;
+    private String phoneEmergency;
 
     // Adicionais
     @Size(max = 60)

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: collab
+
+  # Declina o uso do docker
+  docker:
+    compose:
+      enabled: false
+
+  # Atualiza os schemas do banco de dados --DEV
+  jpa:
+    hibernate:
+      ddl-auto: update

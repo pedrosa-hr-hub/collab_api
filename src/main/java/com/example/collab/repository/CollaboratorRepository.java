@@ -30,13 +30,13 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByTituloEleitor(String tituloEleitor);
 
-    Optional<Collaborator> findByBanco(String banco);
+    Optional<Collaborator> findByBank(String bank);
 
-    Optional<Collaborator> findByConta(String conta);
+    Optional<Collaborator> findByAccount(String account);
 
     Optional<Collaborator> findByPix(String pix);
 
-    Optional<Collaborator> findByNome(String nome);
+    Optional<Collaborator> findByName(String name);
 
     Optional<Collaborator> findByEmail(String email);
 

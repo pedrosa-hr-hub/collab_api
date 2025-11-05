@@ -2,13 +2,13 @@ package com.example.collab.domain.model;
 
 import java.sql.Date;
 
-import com.example.collab.domain.valueobject.bancario.Agencia;
-import com.example.collab.domain.valueobject.bancario.Banco;
-import com.example.collab.domain.valueobject.bancario.Conta;
-import com.example.collab.domain.valueobject.bancario.PIX;
-import com.example.collab.domain.valueobject.bancario.TipoConta;
-import com.example.collab.domain.valueobject.contato.Email;
-import com.example.collab.domain.valueobject.contato.Telefone;
+import com.example.collab.domain.valueobject.banking.Agency;
+import com.example.collab.domain.valueobject.banking.Bank;
+import com.example.collab.domain.valueobject.banking.Account;
+import com.example.collab.domain.valueobject.banking.PIX;
+import com.example.collab.domain.valueobject.banking.TypeAccount;
+import com.example.collab.domain.valueobject.contact.Email;
+import com.example.collab.domain.valueobject.contact.Phone;
 import com.example.collab.domain.valueobject.documento.CNH;
 import com.example.collab.domain.valueobject.documento.CPF;
 import com.example.collab.domain.valueobject.documento.CarteiraTrabalho;
@@ -39,19 +39,19 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String nome;
+    private String name;
 
     @Getter
     @Setter
-    private Date dataNascimento;
+    private Date birthDate;
 
     @Getter
     @Setter
-    private String estadoCivil;
+    private String maritalStatus;
 
     @Getter
     @Setter
-    private String nacionalidade;
+    private String nationality;
 
     // ------------------------------------------------------------------//
 
@@ -63,7 +63,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Telefone telefone;
+    private Phone phone;
 
     @Getter
     @Setter
@@ -107,19 +107,19 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Banco banco;
+    private Bank bank;
 
     @Getter
     @Setter
-    private Agencia agencia;
+    private Agency agency;
 
     @Getter
     @Setter
-    private Conta conta;
+    private Account account;
 
     @Getter
     @Setter
-    private TipoConta tipoConta;
+    private TypeAccount typeAccount;
 
     @Getter
     @Setter
@@ -167,7 +167,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Telefone telefoneEmergencia;
+    private Phone phoneEmergency;
 
     // ------------------------------------------------------------------//
 

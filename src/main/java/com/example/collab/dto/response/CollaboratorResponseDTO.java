@@ -41,10 +41,10 @@ public class CollaboratorResponseDTO {
     private String cargaHoraria;
 
     // Bancárias (avalie expor ou não)
-    private String banco;
-    private String agencia;
-    private String conta;
-    private String tipoConta;
+    private String bank;
+    private String agency;
+    private String account;
+    private String typeAccount;
     private String pix;
 
     // Documentos (avalie expor ou mascarar)
@@ -58,7 +58,7 @@ public class CollaboratorResponseDTO {
 
     // Emergência
     private String contatoEmergencia;
-    private String telefoneEmergencia;
+    private String phoneEmergency;
 
     // Adicionais
     private String escolaridade;
