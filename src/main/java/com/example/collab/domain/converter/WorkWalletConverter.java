@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.valueobject.documento.WorkWallet;
+import com.example.collab.domain.valueobject.document.WorkWallet;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

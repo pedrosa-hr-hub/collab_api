@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.domain.valueobject.contact.*;
-import com.example.collab.domain.valueobject.documento.*;
+import com.example.collab.domain.valueobject.document.*;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

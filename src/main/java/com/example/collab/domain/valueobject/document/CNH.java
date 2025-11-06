@@ -1,4 +1,4 @@
-package com.example.collab.domain.valueobject.documento;
+package com.example.collab.domain.valueobject.document;
 
 import lombok.Value;
 

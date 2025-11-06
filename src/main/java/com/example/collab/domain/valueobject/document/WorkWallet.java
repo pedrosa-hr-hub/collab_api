@@ -1,4 +1,4 @@
-package com.example.collab.domain.valueobject.documento;
+package com.example.collab.domain.valueobject.document;
 
 import com.example.collab.exception.domain.InvalidDocumentException;
 

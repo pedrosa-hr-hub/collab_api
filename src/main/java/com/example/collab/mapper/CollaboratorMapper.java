@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.example.collab.domain.model.Collaborator;
 import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.domain.valueobject.contact.Phone;
-import com.example.collab.domain.valueobject.documento.*;
+import com.example.collab.domain.valueobject.document.*;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 
