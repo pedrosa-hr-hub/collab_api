@@ -38,8 +38,8 @@ public class CollaboratorService {
                 req.getRG(),
                 req.getCNH(),
                 req.getPIS(),
-                req.getCarteiraTrabalho(),
-                req.getTituloEleitor());
+                req.getWorkWallet(),
+                req.getVoterRegistration());
 
         collaboratorValidator.validateNewCollaboratorBank(
                 req.getAccount(),
