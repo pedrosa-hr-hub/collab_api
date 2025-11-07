@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.collab.domain.model.Collaborator;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
+import com.example.collab.exception.business.BadRequestException;
 import com.example.collab.exception.domain.InvalidCollaboratorException;
 import com.example.collab.mapper.CollaboratorMapper;
 import com.example.collab.repository.CollaboratorRepository;
@@ -54,20 +55,23 @@ public class CollaboratorService {
     }
 
     public List<CollaboratorResponseDTO> getAllCollaborators() {
+
         List<Collaborator> collaborators = collaboratorRepository.findAll();
 
         if (collaborators.isEmpty()) {
-            throw new RuntimeException("Nenhum colaborador encontrado");
+
+            throw new BadRequestException("Collaborators not found");
+
         }
         return collaborators.stream()
-                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
-                .toList();
+
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator)).toList();
+
     }
 
     public CollaboratorResponseDTO getCollaboratorByMatricula(Integer matricula) {
 
-        Collaborator collaborator = collaboratorRepository.findByMatricula(matricula)
-                .orElseThrow(() -> new RuntimeException("Matricula não encontrada"));
+        Collaborator collaborator = collaboratorRepository.findByMatricula(matricula).orElseThrow(() -> new BadRequestException("Registration not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -75,8 +79,7 @@ public class CollaboratorService {
 
     public CollaboratorResponseDTO getCollaboratorByCPF(String CPF) {
 
-        Collaborator collaborator = collaboratorRepository.findByCPF(CPF)
-                .orElseThrow(() -> new RuntimeException("CPF não encontrado"));
+        Collaborator collaborator = collaboratorRepository.findByCPF(CPF).orElseThrow(() -> new BadRequestException("CPF not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -84,38 +87,34 @@ public class CollaboratorService {
 
     public CollaboratorResponseDTO getCollaboratorByName(String name) {
 
-        Collaborator collaborator = collaboratorRepository.findByName(name)
-                .orElseThrow(() -> new RuntimeException("Nome não encontrado"));
+        Collaborator collaborator = collaboratorRepository.findByName(name).orElseThrow(() -> new BadRequestException("Name not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
     }
 
-    public void deleteCollaboratorbyMatricula(Integer matricula) {
+    public String deleteCollaboratorbyMatricula(Integer matricula) {
 
-        Collaborator collaborator = collaboratorRepository.findByMatricula(matricula)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
+        Collaborator collaborator = collaboratorRepository.findByMatricula(matricula).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + matricula));
 
-        if (collaborator != null) {
+        String name = collaborator.getName();
 
-            collaboratorRepository.delete(collaborator);
+        collaboratorRepository.delete(collaborator);
 
-        }
-
-        throw new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula);
+        return name;
 
     }
 
     public CollaboratorResponseDTO updateCollaborator(Integer matricula, CollaboratorRequestDTO req) {
 
-        Collaborator existingCollaborator = collaboratorRepository.findByMatricula(matricula)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
+        Collaborator existingCollaborator = collaboratorRepository.findByMatricula(matricula).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + matricula));
 
         collaboratorMapper.updateEntity(existingCollaborator, req);
 
         Collaborator updatedCollaborator = collaboratorRepository.save(existingCollaborator);
 
         return collaboratorMapper.toResponse(updatedCollaborator);
+        
     }
 
 }
