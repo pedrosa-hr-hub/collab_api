@@ -12,7 +12,7 @@ import com.example.collab.dto.response.CollaboratorResponseDTO;
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface CollaboratorMapper {
 
-    // DTO -> Entity (Create)
+    // Pega os dados do DTO e cria uma nova entidade
     @Mapping(target = "endereco", source = "address")
     @Mapping(target = "cargo", source = "position")
     @Mapping(target = "departamento", source = "department")
@@ -41,7 +41,7 @@ public interface CollaboratorMapper {
     @Mapping(target = "phoneEmergency", source = "phoneEmergency", qualifiedByName = "toPhoneEmergency")
     Collaborator toEntity(CollaboratorRequestDTO dto);
 
-    // Update Entity
+    // Pega os novos dados e atualiza a entidade existente
     @Mapping(target = "endereco", source = "address")
     @Mapping(target = "cargo", source = "position")
     @Mapping(target = "departamento", source = "department")
@@ -70,7 +70,7 @@ public interface CollaboratorMapper {
     @Mapping(target = "phoneEmergency", source = "phoneEmergency", qualifiedByName = "toPhoneEmergency")
     void updateEntity(@MappingTarget Collaborator collaborator, CollaboratorRequestDTO dto);
 
-    // Entity -> DTO (Response)
+    // Pega a entidade e converte para o DTO de resposta
     @Mapping(target = "nome", source = "name")
     @Mapping(target = "address", source = "endereco")
     @Mapping(target = "position", source = "cargo")
@@ -100,8 +100,7 @@ public interface CollaboratorMapper {
     @Mapping(target = "phoneEmergency", source = "phoneEmergency", qualifiedByName = "fromPhoneEmergency")
     CollaboratorResponseDTO toResponse(Collaborator collaborator);
 
-    // === Conversores String -> ValueObject ===
-    
+    // Pega os dados e transforma em ValueObjects
     @Named("toEmail")
     default Email toEmail(String value) {
 
@@ -200,8 +199,7 @@ public interface CollaboratorMapper {
 
     }
 
-    // === Conversores ValueObject -> String ===
-
+    // pega os ValueObject's e transforma em String
     @Named("fromEmail")
     default String fromEmail(Email email) {
 
@@ -299,5 +297,5 @@ public interface CollaboratorMapper {
         return rg != null ? rg.getRg() : null;
         
     }
-    
+
 }
