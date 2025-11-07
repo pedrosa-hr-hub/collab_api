@@ -6,12 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.collab.domain.model.Collaborator;
-import com.example.collab.domain.valueobject.banking.Agency;
-import com.example.collab.domain.valueobject.banking.Bank;
-import com.example.collab.domain.valueobject.banking.Account;
-import com.example.collab.domain.valueobject.banking.TypeAccount;
-import com.example.collab.domain.valueobject.contact.Email;
-import com.example.collab.domain.valueobject.contact.Phone;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.exception.domain.InvalidCollaboratorException;
@@ -117,33 +111,7 @@ public class CollaboratorService {
         Collaborator existingCollaborator = collaboratorRepository.findByMatricula(matricula)
                 .orElseThrow(() -> new RuntimeException("Colaborador não encontrado com a matrícula: " + matricula));
 
-        existingCollaborator.setName(req.getName());
-
-        existingCollaborator.setMaritalStatus(req.getMaritalStatus());
-
-        existingCollaborator.setEmail(new Email(req.getEmail()));
-
-        existingCollaborator.setPhone(new Phone(req.getPhone()));
-
-        existingCollaborator.setEndereco(req.getEndereco());
-
-        existingCollaborator.setTypeAccount(new TypeAccount(req.getTypeAccount()));
-
-        existingCollaborator.setBank(new Bank(req.getBank()));
-
-        existingCollaborator.setAgency(new Agency(req.getAgency()));
-
-        existingCollaborator.setAccount(new Account(req.getAccount()));
-
-        existingCollaborator.setContatoEmergencia(req.getContatoEmergencia());
-
-        existingCollaborator.setPhoneEmergency(new Phone(req.getPhoneEmergency()));
-
-        existingCollaborator.setEscolaridade(req.getEscolaridade());
-
-        existingCollaborator.setCurso(req.getCurso());
-
-        existingCollaborator.setObservacoes(req.getObservacoes());
+        collaboratorMapper.updateEntity(existingCollaborator, req);
 
         Collaborator updatedCollaborator = collaboratorRepository.save(existingCollaborator);
 
