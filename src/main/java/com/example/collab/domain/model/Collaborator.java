@@ -57,7 +57,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String endereco;
+    private String address;
 
     // ------------------------------------------------------------------//
 
