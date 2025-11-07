@@ -65,31 +65,31 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String cargo;
+    private String position;
 
     @Getter
     @Setter
-    private String departamento;
+    private String department;
 
     @Getter
     @Setter
-    private Date dataAdmissao;
+    private Date admissionDate;
 
     @Getter
     @Setter
-    private String tipoContrato;
+    private String contractType;
 
     @Getter
     @Setter
-    private Double salario;
+    private Double salary;
 
     @Getter
     @Setter
-    private Integer matricula;
+    private Integer registration;
 
     @Getter
     @Setter
-    private String cargaHoraria;
+    private String workload;
 
     // ------------------------------------------------------------------//
 
@@ -129,7 +129,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String certificadoReservista;
+    private String reservistCertificate;
 
     @Getter
     @Setter
@@ -153,7 +153,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String contatoEmergencia;
+    private String emergencyContact;
 
     @Getter
     @Setter
@@ -165,13 +165,13 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String escolaridade;
+    private String education;
 
     @Getter
     @Setter
-    private String curso;
+    private String course;
 
     @Getter
     @Setter
-    private String observacoes;
+    private String observations;
 }
