@@ -15,7 +15,7 @@ public class CollaboratorResponseDTO {
     private Long id;
 
     // Identificação
-    private String nome;
+    private String name;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
@@ -50,7 +50,7 @@ public class CollaboratorResponseDTO {
     // Documentos (avalie expor ou mascarar)
     private String workWallet;
     private String voterRegistration;
-    private String certificadoReservista;
+    private String reservistCertificate;
     private String PIS;
     private String CNH;
     private String CPF;

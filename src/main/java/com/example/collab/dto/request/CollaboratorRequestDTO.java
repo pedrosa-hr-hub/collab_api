@@ -90,7 +90,7 @@ public class CollaboratorRequestDTO {
     private String voterRegistration;
 
     @Size(max = 40)
-    private String certificadoReservista;
+    private String reservistCertificate;
 
     @Size(max = 20)
     private String PIS;
