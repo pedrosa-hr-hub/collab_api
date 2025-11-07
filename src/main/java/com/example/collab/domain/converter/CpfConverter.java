@@ -10,11 +10,15 @@ public class CpfConverter implements AttributeConverter<CPF, String> {
 
     @Override
     public String convertToDatabaseColumn(CPF attribute) {
+
         return attribute != null ? attribute.getCpf() : null;
+
     }
 
     @Override
     public CPF convertToEntityAttribute(String dbData) {
+
         return dbData != null ? new CPF(dbData) : null;
+        
     }
 }

@@ -10,11 +10,14 @@ public class WorkWalletConverter implements AttributeConverter<WorkWallet, Strin
 
     @Override
     public String convertToDatabaseColumn(WorkWallet attribute) {
+
         return attribute != null ? attribute.getNumber() : null;
+
     }
 
     @Override
     public WorkWallet convertToEntityAttribute(String dbData) {
+
         return dbData != null ? new WorkWallet(dbData) : null;
     }
 }

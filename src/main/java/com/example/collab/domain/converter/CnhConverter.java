@@ -10,11 +10,15 @@ public class CnhConverter implements AttributeConverter<CNH, String> {
 
     @Override
     public String convertToDatabaseColumn(CNH attribute) {
+
         return attribute != null ? attribute.getCnh() : null;
+
     }
 
     @Override
     public CNH convertToEntityAttribute(String dbData) {
+
         return dbData != null ? new CNH(dbData) : null;
+        
     }
 }

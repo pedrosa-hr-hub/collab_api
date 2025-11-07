@@ -12,7 +12,9 @@ public class PIS {
     public PIS(String pis) {
 
         if (pis == null || pis.isBlank()) {
+
             throw new InvalidDocumentException("PIS must be provided");
+            
         }
 
         // Remove caracteres não numéricos
