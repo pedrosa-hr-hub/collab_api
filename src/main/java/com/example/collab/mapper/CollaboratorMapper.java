@@ -1,11 +1,10 @@
 package com.example.collab.mapper;
 
 import org.mapstruct.*;
-import com.example.collab.domain.model.Collaborator;
 import com.example.collab.domain.valueobject.banking.*;
-import com.example.collab.domain.valueobject.contact.Email;
-import com.example.collab.domain.valueobject.contact.Phone;
+import com.example.collab.domain.valueobject.contact.*;
 import com.example.collab.domain.valueobject.document.*;
+import com.example.collab.domain.model.Collaborator;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 
@@ -13,18 +12,19 @@ import com.example.collab.dto.response.CollaboratorResponseDTO;
 public interface CollaboratorMapper {
 
     // Pega os dados do DTO e cria uma nova entidade
-    @Mapping(target = "endereco", source = "address")
-    @Mapping(target = "cargo", source = "position")
-    @Mapping(target = "departamento", source = "department")
-    @Mapping(target = "dataAdmissao", source = "admissionDate")
-    @Mapping(target = "tipoContrato", source = "contractType")
-    @Mapping(target = "salario", source = "salary")
-    @Mapping(target = "matricula", source = "registration")
-    @Mapping(target = "cargaHoraria", source = "workload")
-    @Mapping(target = "contatoEmergencia", source = "emergencyContact")
-    @Mapping(target = "escolaridade", source = "education")
-    @Mapping(target = "curso", source = "course")
-    @Mapping(target = "observacoes", source = "observations")
+    @Mapping(target = "address", source = "address")
+    @Mapping(target = "position", source = "position")
+    @Mapping(target = "department", source = "department")
+    @Mapping(target = "admissionDate", source = "admissionDate")
+    @Mapping(target = "contractType", source = "contractType")
+    @Mapping(target = "salary", source = "salary")
+    @Mapping(target = "registration", source = "registration")
+    @Mapping(target = "workload", source = "workload")
+    @Mapping(target = "emergencyContact", source = "emergencyContact")
+    @Mapping(target = "education", source = "education")
+    @Mapping(target = "course", source = "course")
+    @Mapping(target = "observations", source = "observations")
+    @Mapping(target = "reservistCertificate", source = "reservistCertificate")
     @Mapping(target = "email", source = "email", qualifiedByName = "toEmail")
     @Mapping(target = "phone", source = "phone", qualifiedByName = "toPhone")
     @Mapping(target = "bank", source = "bank", qualifiedByName = "toBank")
@@ -42,18 +42,19 @@ public interface CollaboratorMapper {
     Collaborator toEntity(CollaboratorRequestDTO dto);
 
     // Pega os novos dados e atualiza a entidade existente
-    @Mapping(target = "endereco", source = "address")
-    @Mapping(target = "cargo", source = "position")
-    @Mapping(target = "departamento", source = "department")
-    @Mapping(target = "dataAdmissao", source = "admissionDate")
-    @Mapping(target = "tipoContrato", source = "contractType")
-    @Mapping(target = "salario", source = "salary")
-    @Mapping(target = "matricula", source = "registration")
-    @Mapping(target = "cargaHoraria", source = "workload")
-    @Mapping(target = "contatoEmergencia", source = "emergencyContact")
-    @Mapping(target = "escolaridade", source = "education")
-    @Mapping(target = "curso", source = "course")
-    @Mapping(target = "observacoes", source = "observations")
+    @Mapping(target = "address", source = "address")
+    @Mapping(target = "position", source = "position")
+    @Mapping(target = "department", source = "department")
+    @Mapping(target = "admissionDate", source = "admissionDate")
+    @Mapping(target = "contractType", source = "contractType")
+    @Mapping(target = "salary", source = "salary")
+    @Mapping(target = "registration", source = "registration")
+    @Mapping(target = "workload", source = "workload")
+    @Mapping(target = "emergencyContact", source = "emergencyContact")
+    @Mapping(target = "education", source = "education")
+    @Mapping(target = "course", source = "course")
+    @Mapping(target = "observations", source = "observations")
+    @Mapping(target = "reservistCertificate", source = "reservistCertificate")
     @Mapping(target = "email", source = "email", qualifiedByName = "toEmail")
     @Mapping(target = "phone", source = "phone", qualifiedByName = "toPhone")
     @Mapping(target = "bank", source = "bank", qualifiedByName = "toBank")
@@ -71,19 +72,20 @@ public interface CollaboratorMapper {
     void updateEntity(@MappingTarget Collaborator collaborator, CollaboratorRequestDTO dto);
 
     // Pega a entidade e converte para o DTO de resposta
-    @Mapping(target = "nome", source = "name")
-    @Mapping(target = "address", source = "endereco")
-    @Mapping(target = "position", source = "cargo")
-    @Mapping(target = "department", source = "departamento")
-    @Mapping(target = "admissionDate", source = "dataAdmissao")
-    @Mapping(target = "contractType", source = "tipoContrato")
-    @Mapping(target = "salary", source = "salario")
-    @Mapping(target = "registration", source = "matricula")
-    @Mapping(target = "workload", source = "cargaHoraria")
-    @Mapping(target = "emergencyContact", source = "contatoEmergencia")
-    @Mapping(target = "education", source = "escolaridade")
-    @Mapping(target = "course", source = "curso")
-    @Mapping(target = "observations", source = "observacoes")
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "address", source = "address")
+    @Mapping(target = "position", source = "position")
+    @Mapping(target = "department", source = "department")
+    @Mapping(target = "admissionDate", source = "admissionDate")
+    @Mapping(target = "contractType", source = "contractType")
+    @Mapping(target = "salary", source = "salary")
+    @Mapping(target = "registration", source = "registration")
+    @Mapping(target = "workload", source = "workload")
+    @Mapping(target = "emergencyContact", source = "emergencyContact")
+    @Mapping(target = "education", source = "education")
+    @Mapping(target = "course", source = "course")
+    @Mapping(target = "reservistCertificate", source = "reservistCertificate")
+    @Mapping(target = "observations", source = "observations")
     @Mapping(target = "email", source = "email", qualifiedByName = "fromEmail")
     @Mapping(target = "phone", source = "phone", qualifiedByName = "fromPhone")
     @Mapping(target = "bank", source = "bank", qualifiedByName = "fromBank")
