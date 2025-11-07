@@ -18,27 +18,27 @@ public class CollaboratorResponseDTO {
     private String nome;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataNascimento;
+    private LocalDate birthDate;
 
-    private String estadoCivil;
-    private String nacionalidade;
+    private String maritalStatus;
+    private String nationality;
 
     // Contato
     private String email;
-    private String telefone;
-    private String endereco;
+    private String phone;
+    private String address;
 
     // Profissional
-    private String cargo;
-    private String departamento;
+    private String position;
+    private String department;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataAdmissao;
+    private LocalDate admissionDate;
 
-    private String tipoContrato;
-    private Double salario; // se sensível, omitir aqui
-    private Integer matricula;
-    private String cargaHoraria;
+    private String contractType;
+    private Double salary; // se sensível, omitir aqui
+    private Integer registration;
+    private String workload;
 
     // Bancárias (avalie expor ou não)
     private String bank;
@@ -57,11 +57,11 @@ public class CollaboratorResponseDTO {
     private String RG;
 
     // Emergência
-    private String contatoEmergencia;
+    private String emergencyContact;
     private String phoneEmergency;
 
     // Adicionais
-    private String escolaridade;
-    private String curso;
-    private String observacoes;
+    private String education;
+    private String course;
+    private String observations;
 }
