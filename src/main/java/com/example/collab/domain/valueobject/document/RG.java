@@ -1,16 +1,21 @@
-package com.example.collab.domain.valueobject.documento;
+package com.example.collab.domain.valueobject.document;
+
+import com.example.collab.exception.domain.InvalidDocumentException;
 
 import lombok.Value;
 
 @Value
 public class RG {
+
     String rg;
 
     public RG(String rg) {
 
         // Validação de valores em branco ou vazios
         if (rg == null || rg.isBlank()) {
-            throw new IllegalArgumentException("RG deve ser informado");
+
+            throw new InvalidDocumentException("RG must be provided");
+
         }
 
         // Limpa a formatação
@@ -18,14 +23,19 @@ public class RG {
 
         // Validação de tamanho do RG
         if (cleanedRG.length() < 5 || cleanedRG.length() > 12) {
-            throw new IllegalArgumentException("RG deve ter entre 5 e 12 dígitos após limpar a formatação");
+
+            throw new InvalidDocumentException("RG must have between 5 and 12 digits after formatting");
+
         }
 
         // Validação de digitos iguais
         if (cleanedRG.matches("(\\d)\\1+")) {
-            throw new IllegalArgumentException("RG não pode conter todos os dígitos iguais");
+
+            throw new InvalidDocumentException("RG must not contain all identical digits");
+
         }
 
         this.rg = cleanedRG;
+        
     }
 }

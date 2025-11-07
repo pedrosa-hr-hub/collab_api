@@ -26,9 +26,9 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByPIS(String PIS);
 
-    Optional<Collaborator> findByCarteiraTrabalho(String carteiraTrabalho);
+    Optional<Collaborator> findByWorkWallet(String workWallet);
 
-    Optional<Collaborator> findByTituloEleitor(String tituloEleitor);
+    Optional<Collaborator> findByVoterRegistration(String voterRegistration);
 
     Optional<Collaborator> findByBank(String bank);
 

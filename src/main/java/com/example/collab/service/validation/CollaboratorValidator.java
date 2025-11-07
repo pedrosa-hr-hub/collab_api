@@ -18,8 +18,8 @@ public class CollaboratorValidator {
 
     private CollaboratorRepository collaboratorRepository;
 
-    public void validateNewCollaboratorDocuments(String cpf, String RG, String CNH, String PIS, String carteiraTrabalho,
-            String tituloEleitor) {
+    public void validateNewCollaboratorDocuments(String cpf, String RG, String CNH, String PIS, String workWallet,
+            String voterRegistration) {
 
         if (collaboratorRepository.findByCPF(cpf).isPresent()) {
 
@@ -45,13 +45,13 @@ public class CollaboratorValidator {
 
         }
 
-        if (collaboratorRepository.findByCarteiraTrabalho(carteiraTrabalho).isPresent()) {
+        if (collaboratorRepository.findByWorkWallet(workWallet).isPresent()) {
 
             throw new DuplicatedWorkWalletException("Work Wallet already exists");
 
         }
 
-        if (collaboratorRepository.findByTituloEleitor(tituloEleitor).isPresent()) {
+        if (collaboratorRepository.findByVoterRegistration(voterRegistration).isPresent()) {
 
             throw new DuplicatedVoteRegistrationException("Vote Registration Title already exists");
 

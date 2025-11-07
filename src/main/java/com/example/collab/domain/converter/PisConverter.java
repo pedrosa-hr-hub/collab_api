@@ -1,6 +1,6 @@
 package com.example.collab.domain.converter;
 
-import com.example.collab.domain.valueobject.documento.PIS;
+import com.example.collab.domain.valueobject.document.PIS;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -10,11 +10,15 @@ public class PisConverter implements AttributeConverter<PIS, String> {
 
     @Override
     public String convertToDatabaseColumn(PIS attribute) {
+    
         return attribute != null ? attribute.getPis() : null;
+
     }
 
     @Override
     public PIS convertToEntityAttribute(String dbData) {
+
         return dbData != null ? new PIS(dbData) : null;
+        
     }
 }

@@ -10,11 +10,15 @@ public class PIXConverter implements AttributeConverter<PIX, String> {
 
     @Override
     public String convertToDatabaseColumn(PIX attribute) {
+
         return attribute != null ? attribute.getKey() : null;
+
     }
 
     @Override
     public PIX convertToEntityAttribute(String dbData) {
+
         return dbData != null ? new PIX(dbData) : null;
+        
     }
 }

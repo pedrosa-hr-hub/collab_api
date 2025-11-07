@@ -10,11 +10,15 @@ public class TypeAccountConverter implements AttributeConverter<TypeAccount, Str
 
     @Override
     public String convertToDatabaseColumn(TypeAccount attribute) {
+
         return attribute != null ? attribute.getType() : null;
+
     }
 
     @Override
     public TypeAccount convertToEntityAttribute(String dbData) {
+
         return dbData != null ? new TypeAccount(dbData) : null;
+        
     }
 }
