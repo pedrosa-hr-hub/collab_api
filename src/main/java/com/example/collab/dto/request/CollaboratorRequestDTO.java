@@ -41,30 +41,30 @@ public class CollaboratorRequestDTO {
     private String phone;
 
     @Size(max = 255)
-    private String endereco;
+    private String address;
 
     // Profissional
     @Size(max = 120)
-    private String cargo;
+    private String position;
 
     @Size(max = 120)
-    private String departamento;
+    private String department;
 
     @PastOrPresent
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataAdmissao;
+    private LocalDate admissionDate;
 
     @Size(max = 60)
-    private String tipoContrato;
+    private String contractType;
 
     @PositiveOrZero
-    private Double salario;
+    private Double salary;
 
     @NotNull
-    private Integer matricula;
+    private Integer registration;
 
     @Size(max = 20)
-    private String cargaHoraria;
+    private String workload;
 
     // Bancárias
     @Size(max = 3)
@@ -106,18 +106,18 @@ public class CollaboratorRequestDTO {
 
     // Emergência
     @Size(max = 120)
-    private String contatoEmergencia;
+    private String emergencyContact;
 
     @Size(max = 20)
     private String phoneEmergency;
 
     // Adicionais
     @Size(max = 60)
-    private String escolaridade;
+    private String education;
 
     @Size(max = 120)
-    private String curso;
+    private String course;
 
     @Size(max = 120)
-    private String observacoes;
+    private String observations;
 }
