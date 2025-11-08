@@ -1,5 +1,31 @@
 package com.example.collab.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.collab.dto.request.CollaboratorRequestDTO;
+import com.example.collab.dto.response.CollaboratorResponseDTO;
+import com.example.collab.service.CollaboratorService;
+
+import jakarta.validation.Valid;
+
+
+@RestController
+@RequestMapping("/collaborators")
 public class CollaboratorController {
+
+    @Autowired
+    private CollaboratorService collaboratorService;
+
+    @PostMapping
+    public ResponseEntity<CollaboratorResponseDTO> create(@RequestBody @Valid CollaboratorRequestDTO body) {
+       
+        CollaboratorResponseDTO response = collaboratorService.createCollaborator(body);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
+    }
+    
 
 }
