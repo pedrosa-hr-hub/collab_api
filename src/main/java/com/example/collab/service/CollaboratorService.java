@@ -69,9 +69,9 @@ public class CollaboratorService {
 
     }
 
-    public CollaboratorResponseDTO getCollaboratorByMatricula(Integer registration) {
+    public CollaboratorResponseDTO getCollaboratorByRegistration(Integer registration) {
 
-        Collaborator collaborator = collaboratorRepository.findByMatricula(registration).orElseThrow(() -> new BadRequestException("Registration not found"));
+        Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(() -> new BadRequestException("Registration not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -93,9 +93,9 @@ public class CollaboratorService {
 
     }
 
-    public String deleteCollaboratorbyMatricula(Integer registration) {
+    public String deleteCollaboratorByRegistration(Integer registration) {
 
-        Collaborator collaborator = collaboratorRepository.findByMatricula(registration).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + registration));
+        Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + registration));
 
         String name = collaborator.getName();
 
@@ -107,7 +107,7 @@ public class CollaboratorService {
 
     public CollaboratorResponseDTO updateCollaborator(Integer registration, CollaboratorRequestDTO req) {
 
-        Collaborator existingCollaborator = collaboratorRepository.findByMatricula(registration).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + registration));
+        Collaborator existingCollaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + registration));
 
         collaboratorMapper.updateEntity(existingCollaborator, req);
 
