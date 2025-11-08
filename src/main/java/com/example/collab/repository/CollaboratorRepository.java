@@ -8,15 +8,15 @@ import com.example.collab.domain.model.Collaborator;
 
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 
-    Optional<Collaborator> findByMatricula(Integer matricula);
+    Optional<Collaborator> findByRegistration(Integer registration);
 
-    Optional<Collaborator> findByDepartamento(String departamento);
+    Optional<Collaborator> findByDepartment(String department);
 
-    Optional<Collaborator> findByCargo(String cargo);
+    Optional<Collaborator> findByPosition(String position);
 
-    Optional<Collaborator> findByTipoContrato(String tipoContrato);
+    Optional<Collaborator> findByContractType(String contractType);
 
-    Optional<Collaborator> findByCargaHoraria(String cargaHoraria);
+    Optional<Collaborator> findByWorkload(String workload);
 
     Optional<Collaborator> findByCPF(String CPF);
 
