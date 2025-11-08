@@ -39,4 +39,12 @@ public class CollaboratorController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CollaboratorResponseDTO> getByRegistration(@PathVariable Integer registration) {
+
+        CollaboratorResponseDTO response = collaboratorService.getCollaboratorByRegistration(registration);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
 }
