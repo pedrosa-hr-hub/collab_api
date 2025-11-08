@@ -1,5 +1,7 @@
 package com.example.collab.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,7 @@ import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.service.CollaboratorService;
 
 import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -26,6 +29,14 @@ public class CollaboratorController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
-    
+
+    @GetMapping
+    public ResponseEntity<List<CollaboratorResponseDTO>> getAll() {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getAllCollaborators();
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
 
 }
