@@ -1,5 +1,6 @@
 package com.example.collab.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -36,7 +37,7 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByPix(String pix);
 
-    Optional<Collaborator> findByName(String name);
+    List<Collaborator> findByName(String name);
 
     Optional<Collaborator> findByEmail(String email);
 
