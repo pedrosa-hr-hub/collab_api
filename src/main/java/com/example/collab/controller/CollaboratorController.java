@@ -58,5 +58,13 @@ public class CollaboratorController {
 
     }
 
+    @DeleteMapping("/{registration}")
+    public ResponseEntity<Void> delete(@PathVariable Integer registration) {
+        
+        collaboratorService.deleteCollaboratorByRegistration(registration);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+
+    }
 
 }
