@@ -41,7 +41,7 @@ public class CollaboratorController {
 
     }
 
-    @GetMapping("/{regisrtration}")
+    @GetMapping("/registration/{registration}")
     public ResponseEntity<CollaboratorResponseDTO> getByRegistration(@PathVariable Integer registration) {
 
         CollaboratorResponseDTO response = collaboratorService.getCollaboratorByRegistration(registration);
@@ -50,7 +50,7 @@ public class CollaboratorController {
 
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/cpf/{cpf}")
     public ResponseEntity<CollaboratorResponseDTO> getCollaboratorByCPF(@PathVariable String cpf) {
 
         CollaboratorResponseDTO response = collaboratorService.getCollaboratorByCPF(cpf);
@@ -59,7 +59,7 @@ public class CollaboratorController {
 
     }
     
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByName(@PathVariable String name) {
 
         List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByName(name);
