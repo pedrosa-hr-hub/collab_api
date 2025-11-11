@@ -50,8 +50,8 @@ public class CollaboratorController {
 
     }
 
-    @GetMapping("/cpf")
-    public ResponseEntity<CollaboratorResponseDTO> getCollaboratorByCPF(@RequestParam String cpf) {
+    @GetMapping("/{cpf}")
+    public ResponseEntity<CollaboratorResponseDTO> getCollaboratorByCPF(@PathVariable String cpf) {
 
         CollaboratorResponseDTO response = collaboratorService.getCollaboratorByCPF(cpf);
 
@@ -59,6 +59,14 @@ public class CollaboratorController {
 
     }
     
+    @GetMapping("/{name}")
+    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByName(@PathVariable String name) {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByName(name);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
 
     @PutMapping("/{registration}")
     public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration, @RequestBody @Valid CollaboratorRequestDTO body) {
