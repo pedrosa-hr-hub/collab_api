@@ -85,12 +85,19 @@ public class CollaboratorService {
 
     }
 
-    public CollaboratorResponseDTO getCollaboratorByName(String name) {
+    public List<CollaboratorResponseDTO> getCollaboratorByName(String name) {
 
-        Collaborator collaborator = collaboratorRepository.findByName(name).orElseThrow(() -> new BadRequestException("Name not found"));
+        List<Collaborator> collaborators = collaboratorRepository.findByName(name);
 
-        return collaboratorMapper.toResponse(collaborator);
+        if (collaborators.isEmpty()) {
 
+            throw new BadRequestException("Name not found");
+            
+        }
+        
+        return collaborators.stream()
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
+                .toList();
     }
 
     public String deleteCollaboratorByRegistration(Integer registration) {
