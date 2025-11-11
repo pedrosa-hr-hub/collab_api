@@ -15,6 +15,7 @@ import jakarta.validation.Valid;
 
 
 
+
 @RestController
 @RequestMapping("/collaborators")
 public class CollaboratorController {
@@ -48,6 +49,16 @@ public class CollaboratorController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
+
+    @GetMapping("/cpf")
+    public ResponseEntity<CollaboratorResponseDTO> getCollaboratorByCPF(@RequestParam String cpf) {
+
+        CollaboratorResponseDTO response = collaboratorService.getCollaboratorByCPF(cpf);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
+    
 
     @PutMapping("/{registration}")
     public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration, @RequestBody @Valid CollaboratorRequestDTO body) {
