@@ -10,7 +10,7 @@ public class PisConverter implements AttributeConverter<PIS, String> {
 
     @Override
     public String convertToDatabaseColumn(PIS attribute) {
-    
+
         return attribute != null ? attribute.getPis() : null;
 
     }
@@ -19,6 +19,6 @@ public class PisConverter implements AttributeConverter<PIS, String> {
     public PIS convertToEntityAttribute(String dbData) {
 
         return dbData != null ? new PIS(dbData) : null;
-        
+
     }
 }
