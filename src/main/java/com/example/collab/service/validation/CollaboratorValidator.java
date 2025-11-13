@@ -1,7 +1,10 @@
 package com.example.collab.service.validation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.example.collab.domain.valueobject.banking.*;
+import com.example.collab.domain.valueobject.document.*;
 import com.example.collab.exception.domain.DuplicatedAccountException;
 import com.example.collab.exception.domain.DuplicatedCNHException;
 import com.example.collab.exception.domain.DuplicatedCPFException;
@@ -16,61 +19,102 @@ import com.example.collab.repository.CollaboratorRepository;
 @Component
 public class CollaboratorValidator {
 
+    @Autowired
     private CollaboratorRepository collaboratorRepository;
 
-    public void validateNewCollaboratorDocuments(String cpf, String RG, String CNH, String PIS, String workWallet,
+    public void validateNewCollaboratorDocuments(String cpf, String rg, String cnh, String pis, String workWallet,
             String voterRegistration) {
 
-        if (collaboratorRepository.findByCPF(cpf).isPresent()) {
+        if (cpf != null && !cpf.isBlank()) {
 
-            throw new DuplicatedCPFException("CPF already exists");
+            CPF cpfObj = new CPF(cpf);
 
+            if (collaboratorRepository.findByCPF(cpfObj).isPresent()) {
+
+                throw new DuplicatedCPFException("CPF already exists");
+
+            }
         }
 
-        if (collaboratorRepository.findByRG(RG).isPresent()) {
+        if (rg != null && !rg.isBlank()) {
 
-            throw new DuplicatedRGException("RG already exists");
+            RG rgObj = new RG(rg);
 
+            if (collaboratorRepository.findByRG(rgObj).isPresent()) {
+
+                throw new DuplicatedRGException("RG already exists");
+
+            }
         }
 
-        if (collaboratorRepository.findByCNH(CNH).isPresent()) {
+        if (cnh != null && !cnh.isBlank()) {
 
-            throw new DuplicatedCNHException("CNH already exists");
+            CNH cnhObj = new CNH(cnh);
 
+            if (collaboratorRepository.findByCNH(cnhObj).isPresent()) {
+
+                throw new DuplicatedCNHException("CNH already exists");
+
+            }
         }
 
-        if (collaboratorRepository.findByPIS(PIS).isPresent()) {
+        if (pis != null && !pis.isBlank()) {
 
-            throw new DuplicatedPISException("PIS already exists");
+            PIS pisObj = new PIS(pis);
 
+            if (collaboratorRepository.findByPIS(pisObj).isPresent()) {
+
+                throw new DuplicatedPISException("PIS already exists");
+
+            }
         }
 
-        if (collaboratorRepository.findByWorkWallet(workWallet).isPresent()) {
+        if (workWallet != null && !workWallet.isBlank()) {
 
-            throw new DuplicatedWorkWalletException("Work Wallet already exists");
+            WorkWallet workWalletObj = new WorkWallet(workWallet);
 
+            if (collaboratorRepository.findByWorkWallet(workWalletObj).isPresent()) {
+
+                throw new DuplicatedWorkWalletException("Work Wallet already exists");
+
+            }
         }
 
-        if (collaboratorRepository.findByVoterRegistration(voterRegistration).isPresent()) {
+        if (voterRegistration != null && !voterRegistration.isBlank()) {
 
-            throw new DuplicatedVoteRegistrationException("Vote Registration Title already exists");
+            VoterRegistration voterRegObj = new VoterRegistration(voterRegistration);
 
+            if (collaboratorRepository.findByVoterRegistration(voterRegObj).isPresent()) {
+
+                throw new DuplicatedVoteRegistrationException("Vote Registration Title already exists");
+
+            }
         }
 
     }
 
     public void validateNewCollaboratorBank(String account, String pix) {
 
-        if (collaboratorRepository.findByAccount(account).isPresent()) {
+        if (account != null && !account.isBlank()) {
 
-            throw new DuplicatedAccountException("Account already exists");
+            Account accountObj = new Account(account);
 
+            if (collaboratorRepository.findByAccount(accountObj).isPresent()) {
+
+                throw new DuplicatedAccountException("Account already exists");
+
+            }
         }
 
-        if (collaboratorRepository.findByPix(pix).isPresent()) {
+        if (pix != null && !pix.isBlank()) {
 
-            throw new DuplicatedPixException("Pix already exists");
+            PIX pixObj = new PIX(pix);
 
+            if (collaboratorRepository.findByPix(pixObj).isPresent()) {
+
+                throw new DuplicatedPixException("Pix already exists");
+
+            }
         }
 
     }
