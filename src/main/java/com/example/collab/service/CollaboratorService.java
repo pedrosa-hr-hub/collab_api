@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.collab.domain.model.Collaborator;
+import com.example.collab.domain.valueobject.document.CPF;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.exception.business.BadRequestException;
@@ -72,15 +73,19 @@ public class CollaboratorService {
 
     public CollaboratorResponseDTO getCollaboratorByRegistration(Integer registration) {
 
-        Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(() -> new BadRequestException("Registration not found"));
+        Collaborator collaborator = collaboratorRepository.findByRegistration(registration)
+                .orElseThrow(() -> new BadRequestException("Registration not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
     }
 
-    public CollaboratorResponseDTO getCollaboratorByCPF(String CPF) {
+    public CollaboratorResponseDTO getCollaboratorByCPF(String cpfString) {
 
-        Collaborator collaborator = collaboratorRepository.findByCPF(CPF).orElseThrow(() -> new BadRequestException("CPF not found"));
+        CPF cpf = new CPF(cpfString);
+
+        Collaborator collaborator = collaboratorRepository.findByCPF(cpf)
+                .orElseThrow(() -> new BadRequestException("CPF not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -93,7 +98,7 @@ public class CollaboratorService {
         if (collaborators.isEmpty()) {
 
             throw new NotFoundCollaboratorException("Name not found");
-            
+
         }
 
         return collaborators.stream()
@@ -103,7 +108,8 @@ public class CollaboratorService {
 
     public String deleteCollaboratorByRegistration(Integer registration) {
 
-        Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + registration));
+        Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(
+                () -> new BadRequestException("Collaborator not found with registration: " + registration));
 
         String name = collaborator.getName();
 
@@ -115,7 +121,8 @@ public class CollaboratorService {
 
     public CollaboratorResponseDTO updateCollaborator(Integer registration, CollaboratorRequestDTO req) {
 
-        Collaborator existingCollaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(() -> new BadRequestException("Collaborator not found with registration: " + registration));
+        Collaborator existingCollaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(
+                () -> new BadRequestException("Collaborator not found with registration: " + registration));
 
         collaboratorMapper.updateEntity(existingCollaborator, req);
 
