@@ -12,10 +12,6 @@ import com.example.collab.service.CollaboratorService;
 
 import jakarta.validation.Valid;
 
-
-
-
-
 @RestController
 @RequestMapping("/collaborators")
 public class CollaboratorController {
@@ -25,7 +21,7 @@ public class CollaboratorController {
 
     @PostMapping
     public ResponseEntity<CollaboratorResponseDTO> create(@RequestBody @Valid CollaboratorRequestDTO body) {
-       
+
         CollaboratorResponseDTO response = collaboratorService.createCollaborator(body);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -58,7 +54,7 @@ public class CollaboratorController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
-    
+
     @GetMapping("/name/{name}")
     public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByName(@PathVariable String name) {
 
@@ -69,8 +65,9 @@ public class CollaboratorController {
     }
 
     @PutMapping("/{registration}")
-    public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration, @RequestBody @Valid CollaboratorRequestDTO body) {
-        
+    public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration,
+            @RequestBody @Valid CollaboratorRequestDTO body) {
+
         CollaboratorResponseDTO response = collaboratorService.updateCollaborator(registration, body);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
@@ -79,7 +76,7 @@ public class CollaboratorController {
 
     @DeleteMapping("/{registration}")
     public ResponseEntity<Void> delete(@PathVariable Integer registration) {
-        
+
         collaboratorService.deleteCollaboratorByRegistration(registration);
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
