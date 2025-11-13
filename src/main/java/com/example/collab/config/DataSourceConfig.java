@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import com.example.collab.exception.resource.NotFoundException;
+import com.example.collab.exception.resource.ConfigurationException;
 
 import javax.sql.DataSource;
 
@@ -23,12 +23,12 @@ public class DataSourceConfig {
 
         if (url == null || username == null || password == null) {
 
-            throw new NotFoundException("Database environment variables were not found in the .env");
+            throw new ConfigurationException("Database environment variables were not found in the .env");
 
         }
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        
+
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);

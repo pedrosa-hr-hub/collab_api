@@ -19,5 +19,6 @@ public class WorkWalletConverter implements AttributeConverter<WorkWallet, Strin
     public WorkWallet convertToEntityAttribute(String dbData) {
 
         return dbData != null ? new WorkWallet(dbData) : null;
+
     }
 }

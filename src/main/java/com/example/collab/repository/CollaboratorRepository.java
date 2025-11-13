@@ -1,5 +1,6 @@
 package com.example.collab.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,15 +9,15 @@ import com.example.collab.domain.model.Collaborator;
 
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 
-    Optional<Collaborator> findByMatricula(Integer matricula);
+    Optional<Collaborator> findByRegistration(Integer registration);
 
-    Optional<Collaborator> findByDepartamento(String departamento);
+    List<Collaborator> findByDepartment(String department);
 
-    Optional<Collaborator> findByCargo(String cargo);
+    List<Collaborator> findByPosition(String position);
 
-    Optional<Collaborator> findByTipoContrato(String tipoContrato);
+    List<Collaborator> findByContractType(String contractType);
 
-    Optional<Collaborator> findByCargaHoraria(String cargaHoraria);
+    Optional<Collaborator> findByWorkload(String workload);
 
     Optional<Collaborator> findByCPF(String CPF);
 
@@ -36,10 +37,10 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByPix(String pix);
 
-    Optional<Collaborator> findByName(String name);
+    List<Collaborator> findByName(String name);
 
     Optional<Collaborator> findByEmail(String email);
 
-    void deleteByMatricula(Integer matricula);
+    void deleteByRegistration(Integer registration);
 
 }
