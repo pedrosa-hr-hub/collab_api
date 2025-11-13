@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.collab.domain.model.Collaborator;
+import com.example.collab.domain.valueobject.banking.*;
+import com.example.collab.domain.valueobject.document.*;
 
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 
@@ -19,23 +21,23 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByWorkload(String workload);
 
-    Optional<Collaborator> findByCPF(String CPF);
+    Optional<Collaborator> findByCPF(CPF CPF);
 
-    Optional<Collaborator> findByRG(String RG);
+    Optional<Collaborator> findByRG(RG RG);
 
-    Optional<Collaborator> findByCNH(String CNH);
+    Optional<Collaborator> findByCNH(CNH CNH);
 
-    Optional<Collaborator> findByPIS(String PIS);
+    Optional<Collaborator> findByPIS(PIS PIS);
 
-    Optional<Collaborator> findByWorkWallet(String workWallet);
+    Optional<Collaborator> findByWorkWallet(WorkWallet workWallet);
 
-    Optional<Collaborator> findByVoterRegistration(String voterRegistration);
+    Optional<Collaborator> findByVoterRegistration(VoterRegistration voterRegistration);
 
     Optional<Collaborator> findByBank(String bank);
 
-    Optional<Collaborator> findByAccount(String account);
+    Optional<Collaborator> findByAccount(Account account);
 
-    Optional<Collaborator> findByPix(String pix);
+    Optional<Collaborator> findByPix(PIX pix);
 
     List<Collaborator> findByName(String name);
 
