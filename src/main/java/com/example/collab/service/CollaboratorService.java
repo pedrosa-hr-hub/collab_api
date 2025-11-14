@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.collab.domain.model.Collaborator;
-import com.example.collab.domain.valueobject.document.CPF;
+import com.example.collab.domain.valueobject.document.*;
+import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.exception.business.BadRequestException;
@@ -128,6 +129,23 @@ public class CollaboratorService {
         if (collaborators.isEmpty()) {
 
             throw new NotFoundCollaboratorException("Position not found");
+
+        }
+
+        return collaborators.stream()
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
+                .toList();
+    }
+
+    public List<CollaboratorResponseDTO> getCollaboratorByBank(String bankName) {
+
+        Bank bank = new Bank(bankName);
+
+        List<Collaborator> collaborators = collaboratorRepository.findByBank(bank);
+
+        if (collaborators.isEmpty()) {
+
+            throw new NotFoundCollaboratorException("Bank not found");
 
         }
 
