@@ -121,6 +121,21 @@ public class CollaboratorService {
                 .toList();
     }
 
+    public List<CollaboratorResponseDTO> getCollaboratorByPosition(String position) {
+
+        List<Collaborator> collaborators = collaboratorRepository.findByPosition(position);
+
+        if (collaborators.isEmpty()) {
+
+            throw new NotFoundCollaboratorException("Position not found");
+
+        }
+
+        return collaborators.stream()
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
+                .toList();
+    }
+
     public String deleteCollaboratorByRegistration(Integer registration) {
 
         Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(
