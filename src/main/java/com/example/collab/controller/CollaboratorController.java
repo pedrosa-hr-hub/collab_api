@@ -82,6 +82,15 @@ public class CollaboratorController {
 
     }
 
+    @GetMapping("/bank/{bank}")
+    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByBank(@PathVariable String bank) {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByBank(bank);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
+
     @PutMapping("/{registration}")
     public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration,
             @RequestBody @Valid CollaboratorRequestDTO body) {
