@@ -73,6 +73,15 @@ public class CollaboratorController {
 
     }
 
+    @GetMapping("/position/{position}")
+    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByPosition(@PathVariable String position) {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByPosition(position);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
+
     @PutMapping("/{registration}")
     public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration,
             @RequestBody @Valid CollaboratorRequestDTO body) {
