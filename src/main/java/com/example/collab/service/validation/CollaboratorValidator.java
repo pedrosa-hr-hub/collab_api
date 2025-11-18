@@ -119,4 +119,17 @@ public class CollaboratorValidator {
 
     }
 
+    public void validateNewCollaboratorData(Integer registration) {
+
+        if (registration != null) {
+
+            if (collaboratorRepository.findByRegistration(registration).isPresent()) {
+
+                throw new DuplicatedAccountException("Registration already exists");
+
+            }
+        }
+
+    }
+
 }
