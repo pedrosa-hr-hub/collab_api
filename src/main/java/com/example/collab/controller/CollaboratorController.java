@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.collab.domain.valueobject.document.CPF;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.service.CollaboratorService;
@@ -102,11 +103,20 @@ public class CollaboratorController {
     }
 
     @DeleteMapping("/{registration}")
-    public ResponseEntity<Void> delete(@PathVariable Integer registration) {
+    public ResponseEntity<String> delete(@PathVariable Integer registration) {
 
-        collaboratorService.deleteCollaboratorByRegistration(registration);
+        String response = collaboratorService.deleteCollaboratorByRegistration(registration);
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
+
+    }
+
+    @DeleteMapping("/cpf/{cpf}")
+    public ResponseEntity<CPF> deleteByCPF(@PathVariable String cpf) {
+
+        CPF response = collaboratorService.deleteCollaboratorByCPF(new CPF(cpf));
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
 
     }
 
