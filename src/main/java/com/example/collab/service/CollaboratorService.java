@@ -43,6 +43,8 @@ public class CollaboratorService {
                 req.getAccount(),
                 req.getPix());
 
+        collaboratorValidator.validateNewCollaboratorData(req.getRegistration());
+
         Collaborator collaborator = collaboratorMapper.toEntity(req);
 
         if (collaborator != null) {
