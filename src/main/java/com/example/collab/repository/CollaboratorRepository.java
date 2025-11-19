@@ -17,21 +17,7 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     List<Collaborator> findByPosition(String position);
 
-    List<Collaborator> findByContractType(String contractType);
-
-    Optional<Collaborator> findByWorkload(String workload);
-
     Optional<Collaborator> findByCPF(CPF CPF);
-
-    Optional<Collaborator> findByRG(RG RG);
-
-    Optional<Collaborator> findByCNH(CNH CNH);
-
-    Optional<Collaborator> findByPIS(PIS PIS);
-
-    Optional<Collaborator> findByWorkWallet(WorkWallet workWallet);
-
-    Optional<Collaborator> findByVoterRegistration(VoterRegistration voterRegistration);
 
     List<Collaborator> findByBank(Bank bank);
 
@@ -42,7 +28,5 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
     List<Collaborator> findByName(String name);
 
     Optional<Collaborator> findByEmail(String email);
-
-    void deleteByRegistration(Integer registration);
 
 }
