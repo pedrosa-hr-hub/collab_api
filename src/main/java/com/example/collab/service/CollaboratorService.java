@@ -169,16 +169,16 @@ public class CollaboratorService {
 
     }
 
-    public CollaboratorResponseDTO deleteCollaboratorByCPF(String cpfString) {
-
-        CPF cpf = new CPF(cpfString);
+    public CPF deleteCollaboratorByCPF(CPF cpf) {
 
         Collaborator collaborator = collaboratorRepository.findByCPF(cpf).orElseThrow(
-                () -> new BadRequestException("Collaborator not found with CPF: " + cpfString));
+                () -> new BadRequestException("Collaborator not found with CPF: " + cpf));
+
+        CPF cpfValue = collaborator.getCPF();
 
         collaboratorRepository.delete(collaborator);
 
-        return collaboratorMapper.toResponse(collaborator);
+        return cpfValue;
 
     }
 
