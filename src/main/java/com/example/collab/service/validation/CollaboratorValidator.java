@@ -19,8 +19,15 @@ import com.example.collab.repository.CollaboratorRepository;
 @Component
 public class CollaboratorValidator {
 
-    @Autowired
+    
     private CollaboratorRepository collaboratorRepository;
+
+    @Autowired
+    public CollaboratorValidator(CollaboratorRepository collaboratorRepository){
+
+        this.collaboratorRepository = collaboratorRepository;
+
+    }
 
     public void validateNewCollaboratorDocuments(String cpf, String rg, String cnh, String pis, String workWallet,
             String voterRegistration) {

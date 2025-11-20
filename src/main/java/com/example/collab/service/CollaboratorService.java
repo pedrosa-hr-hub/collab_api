@@ -20,14 +20,22 @@ import com.example.collab.service.validation.CollaboratorValidator;
 @Service
 public class CollaboratorService {
 
-    @Autowired
     private CollaboratorRepository collaboratorRepository;
 
-    @Autowired
     private CollaboratorValidator collaboratorValidator;
 
-    @Autowired
     private CollaboratorMapper collaboratorMapper;
+
+    @Autowired
+    public CollaboratorService(CollaboratorRepository collaboratorRepository, CollaboratorValidator collaboratorValidator, CollaboratorMapper collaboratorMapper){
+        
+        this.collaboratorRepository = collaboratorRepository;
+        
+        this.collaboratorValidator = collaboratorValidator;
+        
+        this.collaboratorMapper = collaboratorMapper;
+
+    }
 
     public CollaboratorResponseDTO createCollaborator(CollaboratorRequestDTO req) {
 

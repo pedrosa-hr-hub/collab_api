@@ -17,8 +17,15 @@ import jakarta.validation.Valid;
 @RequestMapping("/collaborators")
 public class CollaboratorController {
 
-    @Autowired
+    
     private CollaboratorService collaboratorService;
+    
+    @Autowired
+    public CollaboratorController(CollaboratorService collaboratorService){
+
+        this.collaboratorService = collaboratorService;
+        
+    }
 
     @PostMapping
     public ResponseEntity<CollaboratorResponseDTO> create(@RequestBody @Valid CollaboratorRequestDTO body) {
