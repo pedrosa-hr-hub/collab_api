@@ -77,7 +77,7 @@ public class CollaboratorService {
     public CollaboratorResponseDTO getCollaboratorByRegistration(Integer registration) {
 
         Collaborator collaborator = collaboratorRepository.findByRegistration(registration)
-                .orElseThrow(() -> new BadRequestException("Registration not found"));
+                .orElseThrow(() -> new NotFoundCollaboratorException("Registration not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -88,7 +88,7 @@ public class CollaboratorService {
         CPF cpf = new CPF(cpfString);
 
         Collaborator collaborator = collaboratorRepository.findByCPF(cpf)
-                .orElseThrow(() -> new BadRequestException("CPF not found"));
+                .orElseThrow(() -> new NotFoundCollaboratorException("CPF not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -130,7 +130,7 @@ public class CollaboratorService {
 
         if (collaborators.isEmpty()) {
 
-            throw new NotFoundCollaboratorException("Position not found");
+            throw new  NotFoundCollaboratorException("Position not found");
 
         }
 
