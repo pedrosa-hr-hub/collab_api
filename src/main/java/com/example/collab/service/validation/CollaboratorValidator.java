@@ -19,8 +19,15 @@ import com.example.collab.repository.CollaboratorRepository;
 @Component
 public class CollaboratorValidator {
 
-    @Autowired
+    
     private CollaboratorRepository collaboratorRepository;
+
+    @Autowired
+    public CollaboratorValidator(CollaboratorRepository collaboratorRepository){
+
+        this.collaboratorRepository = collaboratorRepository;
+
+    }
 
     public void validateNewCollaboratorDocuments(String cpf, String rg, String cnh, String pis, String workWallet,
             String voterRegistration) {
@@ -113,6 +120,19 @@ public class CollaboratorValidator {
             if (collaboratorRepository.findByPix(pixObj).isPresent()) {
 
                 throw new DuplicatedPixException("Pix already exists");
+
+            }
+        }
+
+    }
+
+    public void validateNewCollaboratorData(Integer registration) {
+
+        if (registration != null) {
+
+            if (collaboratorRepository.findByRegistration(registration).isPresent()) {
+
+                throw new DuplicatedAccountException("Registration already exists");
 
             }
         }

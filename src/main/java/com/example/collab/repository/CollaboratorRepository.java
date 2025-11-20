@@ -33,7 +33,7 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByVoterRegistration(VoterRegistration voterRegistration);
 
-    Optional<Collaborator> findByBank(String bank);
+    List<Collaborator> findByBank(Bank bank);
 
     Optional<Collaborator> findByAccount(Account account);
 

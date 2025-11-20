@@ -75,7 +75,7 @@ public class GlobalExceptionHandler {
     }
 
     // HTTP 500
-    @ExceptionHandler({ Exception.class, ConfigurationException.class })
+    @ExceptionHandler({ Exception.class })
     public ResponseEntity<ErrorResponse> handleGeneric(Exception ex, WebRequest req) {
 
         var body = ErrorResponse.of(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error", ex.getMessage(),

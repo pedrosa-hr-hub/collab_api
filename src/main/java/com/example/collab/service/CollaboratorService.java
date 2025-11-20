@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.collab.domain.model.Collaborator;
-import com.example.collab.domain.valueobject.document.CPF;
+import com.example.collab.domain.valueobject.document.*;
+import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.exception.business.BadRequestException;
@@ -19,14 +20,22 @@ import com.example.collab.service.validation.CollaboratorValidator;
 @Service
 public class CollaboratorService {
 
-    @Autowired
     private CollaboratorRepository collaboratorRepository;
 
-    @Autowired
     private CollaboratorValidator collaboratorValidator;
 
-    @Autowired
     private CollaboratorMapper collaboratorMapper;
+
+    @Autowired
+    public CollaboratorService(CollaboratorRepository collaboratorRepository, CollaboratorValidator collaboratorValidator, CollaboratorMapper collaboratorMapper){
+        
+        this.collaboratorRepository = collaboratorRepository;
+        
+        this.collaboratorValidator = collaboratorValidator;
+        
+        this.collaboratorMapper = collaboratorMapper;
+
+    }
 
     public CollaboratorResponseDTO createCollaborator(CollaboratorRequestDTO req) {
 
@@ -41,6 +50,8 @@ public class CollaboratorService {
         collaboratorValidator.validateNewCollaboratorBank(
                 req.getAccount(),
                 req.getPix());
+
+        collaboratorValidator.validateNewCollaboratorData(req.getRegistration());
 
         Collaborator collaborator = collaboratorMapper.toEntity(req);
 
@@ -74,7 +85,7 @@ public class CollaboratorService {
     public CollaboratorResponseDTO getCollaboratorByRegistration(Integer registration) {
 
         Collaborator collaborator = collaboratorRepository.findByRegistration(registration)
-                .orElseThrow(() -> new BadRequestException("Registration not found"));
+                .orElseThrow(() -> new NotFoundCollaboratorException("Registration not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -85,7 +96,7 @@ public class CollaboratorService {
         CPF cpf = new CPF(cpfString);
 
         Collaborator collaborator = collaboratorRepository.findByCPF(cpf)
-                .orElseThrow(() -> new BadRequestException("CPF not found"));
+                .orElseThrow(() -> new NotFoundCollaboratorException("CPF not found"));
 
         return collaboratorMapper.toResponse(collaborator);
 
@@ -106,6 +117,53 @@ public class CollaboratorService {
                 .toList();
     }
 
+    public List<CollaboratorResponseDTO> getCollaboratorByDepartment(String department) {
+
+        List<Collaborator> collaborators = collaboratorRepository.findByDepartment(department);
+
+        if (collaborators.isEmpty()) {
+
+            throw new NotFoundCollaboratorException("Department not found");
+
+        }
+
+        return collaborators.stream()
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
+                .toList();
+    }
+
+    public List<CollaboratorResponseDTO> getCollaboratorByPosition(String position) {
+
+        List<Collaborator> collaborators = collaboratorRepository.findByPosition(position);
+
+        if (collaborators.isEmpty()) {
+
+            throw new  NotFoundCollaboratorException("Position not found");
+
+        }
+
+        return collaborators.stream()
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
+                .toList();
+    }
+
+    public List<CollaboratorResponseDTO> getCollaboratorByBank(String bankName) {
+
+        Bank bank = new Bank(bankName);
+
+        List<Collaborator> collaborators = collaboratorRepository.findByBank(bank);
+
+        if (collaborators.isEmpty()) {
+
+            throw new NotFoundCollaboratorException("Bank not found");
+
+        }
+
+        return collaborators.stream()
+                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
+                .toList();
+    }
+
     public String deleteCollaboratorByRegistration(Integer registration) {
 
         Collaborator collaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(
@@ -116,6 +174,19 @@ public class CollaboratorService {
         collaboratorRepository.delete(collaborator);
 
         return name;
+
+    }
+
+    public CPF deleteCollaboratorByCPF(CPF cpf) {
+
+        Collaborator collaborator = collaboratorRepository.findByCPF(cpf).orElseThrow(
+                () -> new BadRequestException("Collaborator not found with CPF: " + cpf));
+
+        CPF cpfValue = collaborator.getCPF();
+
+        collaboratorRepository.delete(collaborator);
+
+        return cpfValue;
 
     }
 

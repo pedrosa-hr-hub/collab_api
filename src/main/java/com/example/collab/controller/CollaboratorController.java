@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.collab.domain.valueobject.document.CPF;
 import com.example.collab.dto.request.CollaboratorRequestDTO;
 import com.example.collab.dto.response.CollaboratorResponseDTO;
 import com.example.collab.service.CollaboratorService;
@@ -16,8 +17,15 @@ import jakarta.validation.Valid;
 @RequestMapping("/collaborators")
 public class CollaboratorController {
 
-    @Autowired
+    
     private CollaboratorService collaboratorService;
+    
+    @Autowired
+    public CollaboratorController(CollaboratorService collaboratorService){
+
+        this.collaboratorService = collaboratorService;
+        
+    }
 
     @PostMapping
     public ResponseEntity<CollaboratorResponseDTO> create(@RequestBody @Valid CollaboratorRequestDTO body) {
@@ -64,6 +72,33 @@ public class CollaboratorController {
 
     }
 
+    @GetMapping("/department/{department}")
+    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByDepartment(@PathVariable String department) {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByDepartment(department);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
+
+    @GetMapping("/position/{position}")
+    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByPosition(@PathVariable String position) {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByPosition(position);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
+
+    @GetMapping("/bank/{bank}")
+    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByBank(@PathVariable String bank) {
+
+        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByBank(bank);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    }
+
     @PutMapping("/{registration}")
     public ResponseEntity<CollaboratorResponseDTO> update(@PathVariable Integer registration,
             @RequestBody @Valid CollaboratorRequestDTO body) {
@@ -75,11 +110,20 @@ public class CollaboratorController {
     }
 
     @DeleteMapping("/{registration}")
-    public ResponseEntity<Void> delete(@PathVariable Integer registration) {
+    public ResponseEntity<String> delete(@PathVariable Integer registration) {
 
-        collaboratorService.deleteCollaboratorByRegistration(registration);
+        String response = collaboratorService.deleteCollaboratorByRegistration(registration);
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
+
+    }
+
+    @DeleteMapping("/cpf/{cpf}")
+    public ResponseEntity<CPF> deleteByCPF(@PathVariable String cpf) {
+
+        CPF response = collaboratorService.deleteCollaboratorByCPF(new CPF(cpf));
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
 
     }
 

@@ -67,22 +67,28 @@ public class CollaboratorRequestDTO {
     private String workload;
 
     // Bancárias
+    @NotNull
     @Size(max = 3)
     private String bank;
 
+    @NotNull
     @Size(max = 10)
     private String agency;
 
+    @NotNull
     @Size(max = 20)
     private String account;
 
+    @NotNull
     @Size(max = 20)
     private String typeAccount;
 
+    @NotNull
     @Size(max = 100)
     private String pix;
 
     // Documentos
+    @NotNull
     @Size(max = 20)
     private String workWallet;
 
@@ -98,9 +104,11 @@ public class CollaboratorRequestDTO {
     @Size(max = 20)
     private String CNH;
 
+    @NotNull
     @Size(max = 14)
     private String CPF;
 
+    @NotNull
     @Size(max = 20)
     private String RG;
 
