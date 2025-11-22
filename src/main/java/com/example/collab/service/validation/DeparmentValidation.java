@@ -49,6 +49,11 @@ public class DeparmentValidation {
 
     public void validateDepartmentNumber(Integer number){
 
+        if(departmentRepository.findByNumber(number).isPresent()){
+
+            throw new RuntimeException("Number already exists");
+
+        }
     }
 
     public void validateDeparmenDate(Date intial_date, Date end_date){
