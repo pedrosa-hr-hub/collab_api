@@ -38,10 +38,10 @@ public class Department {
 
     @Getter
     @Setter
-    private Integer chef_registration;
+    private Integer manager_registration;
 
     @Getter
     @Setter
-    private List<Integer> chef_suport_registration;
+    private List<Integer> manager_suport_registration;
 
 }

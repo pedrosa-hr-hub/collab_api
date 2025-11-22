@@ -93,7 +93,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private boolean cheff;
+    private boolean manager;
 
     // ------------------------------------------------------------------//
 
