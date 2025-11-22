@@ -27,7 +27,7 @@ public class DeparmentValidation {
 
         if(collaboratorRepository.findByRegistrationAndCheff(registration, cheff).isEmpty()){
             
-            throw new RuntimeException("Error");
+            throw new RuntimeException("This Collaborator don't do cheff");
 
           }
 
@@ -38,6 +38,12 @@ public class DeparmentValidation {
     }
 
     public void validateDepartmentName(String name){
+
+        if(departmentRepository.findByName(name).isPresent()){
+
+            throw new RuntimeException("Name already exists");
+
+        }
 
     }
 
