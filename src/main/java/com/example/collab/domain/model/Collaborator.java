@@ -91,6 +91,10 @@ public class Collaborator {
     @Setter
     private String workload;
 
+    @Getter
+    @Setter
+    private boolean cheff;
+
     // ------------------------------------------------------------------//
 
     // Informações Bancárias
