@@ -25,7 +25,7 @@ public class DeparmentValidation {
 
     public void validateDepartmentCheff(Integer registration, boolean manager){
 
-        if(collaboratorRepository.findByRegistrationAndCheff(registration, true).isPresent()){
+        if(collaboratorRepository.findByRegistrationAndManager(registration, true).isPresent()){
             
             throw new RuntimeException("This collaborator does not act as a manager.");
 
