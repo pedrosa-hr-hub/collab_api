@@ -6,20 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.collab.repository.DepartmentRepository;
+import com.example.collab.repository.CollaboratorRepository;
 
 @Component
 public class DeparmentValidation {
 
     private DepartmentRepository departmentRepository;
 
+    private CollaboratorRepository collaboratorRepository;
+
     @Autowired
-    public DeparmentValidation(DepartmentRepository departmentRepository){
+    public DeparmentValidation(DepartmentRepository departmentRepository, CollaboratorRepository collaboratorRepository){
 
         this.departmentRepository = departmentRepository;
+        this.collaboratorRepository = collaboratorRepository;
 
     }
 
-    public void validateDepartmentCheff(String registration){
+    public void validateDepartmentCheff(Integer registration, Integer number){
+
+        if(collaboratorRepository.findByRegistration(registration).isEmpty() && departmentRepository.findByNumber(number).isEmpty){
+
+           throw new RuntimeException("Error");
+
+        } 
+
 
     }
 
