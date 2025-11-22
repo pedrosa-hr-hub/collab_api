@@ -10,4 +10,6 @@ public interface DepartmentRepository extends JpaRepository<Department, Long>{
 
     Optional<Department> findByNumber(Integer mumber);
 
+    Optional<Department> findByName(String name);
+
 }
