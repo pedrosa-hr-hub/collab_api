@@ -23,16 +23,15 @@ public class DeparmentValidation {
 
     }
 
-    public void validateDepartmentCheff(Integer registration, Integer number){
+    public void validateDepartmentCheff(Integer registration, boolean cheff){
 
-        if(collaboratorRepository.findByRegistration(registration).isEmpty() && departmentRepository.findByNumber(number).isEmpty){
+        if(collaboratorRepository.findByRegistrationAndCheff(registration, cheff).isEmpty()){
+            
+            throw new RuntimeException("Error");
 
-           throw new RuntimeException("Error");
+          }
 
-        } 
-
-
-    }
+        }
 
     public void validateDepartmentSupportCheff(String registration){
 
