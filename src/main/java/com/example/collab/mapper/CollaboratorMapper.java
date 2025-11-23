@@ -1,6 +1,7 @@
 package com.example.collab.mapper;
 
 import org.mapstruct.*;
+
 import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.domain.valueobject.contact.*;
 import com.example.collab.domain.valueobject.document.*;
@@ -40,6 +41,8 @@ public interface CollaboratorMapper {
     @Mapping(target = "RG", source = "RG", qualifiedByName = "toRG")
     @Mapping(target = "phoneEmergency", source = "phoneEmergency", qualifiedByName = "toPhoneEmergency")
     @Mapping(target = "department", source = "department", qualifiedByName = "toDepartment")
+    @Mapping(target = "manager", source = "manager")
+    @Mapping(target = "supportManager", source = "supportManager")
     Collaborator toEntity(CollaboratorRequestDTO dto);
 
     // Pega os novos dados e atualiza a entidade existente
@@ -70,6 +73,8 @@ public interface CollaboratorMapper {
     @Mapping(target = "RG", source = "RG", qualifiedByName = "toRG")
     @Mapping(target = "phoneEmergency", source = "phoneEmergency", qualifiedByName = "toPhoneEmergency")
     @Mapping(target = "department", source = "department", qualifiedByName = "toDepartment")
+    @Mapping(target = "manager", source = "manager")
+    @Mapping(target = "supportManager", source = "supportManager")
     void updateEntity(@MappingTarget Collaborator collaborator, CollaboratorRequestDTO dto);
 
     // Pega a entidade e converte para o DTO de resposta
@@ -101,6 +106,8 @@ public interface CollaboratorMapper {
     @Mapping(target = "RG", source = "RG", qualifiedByName = "fromRG")
     @Mapping(target = "phoneEmergency", source = "phoneEmergency", qualifiedByName = "fromPhoneEmergency")
     @Mapping(target = "department", source = "department", qualifiedByName = "fromDepartment")
+    @Mapping(target = "manager", source = "manager")
+    @Mapping(target = "supportManager", source = "supportManager")
     CollaboratorResponseDTO toResponse(Collaborator collaborator);
 
     // Pega os dados e transforma em ValueObjects
