@@ -13,8 +13,6 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByRegistration(Integer registration);
 
-    List<Collaborator> findByDepartment(String department);
-
     List<Collaborator> findByPosition(String position);
 
     List<Collaborator> findByContractType(String contractType);
