@@ -23,17 +23,23 @@ public class DeparmentValidation {
 
     }
 
-    public void validateDepartmentManager(Integer registration, boolean manager){
+    public void validateDepartmentManager(Integer registration){
 
-        if(collaboratorRepository.findByRegistrationAndManager(registration, true).isPresent()){
-            
+        if(collaboratorRepository.findByRegistrationAndManager(registration, true).isEmpty()){
+
             throw new RuntimeException("This collaborator does not act as a manager.");
 
           }
 
-        }
+    }
 
-    public void validateDepartmentSupportManager(String registration){
+    public void validateDepartmentSupportManager(Integer registration){
+
+        if(collaboratorRepository.findByRegistrationAndSupportManager(registration, true).isEmpty()){
+
+            throw new RuntimeException("This collaborator does not act as a support manager");
+
+        }
 
     }
 
