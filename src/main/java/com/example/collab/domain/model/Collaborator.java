@@ -95,6 +95,10 @@ public class Collaborator {
     @Setter
     private boolean manager;
 
+    @Getter
+    @Setter
+    private boolean support_manager;
+
     // ------------------------------------------------------------------//
 
     // Informações Bancárias
