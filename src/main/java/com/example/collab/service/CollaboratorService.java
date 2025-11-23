@@ -53,6 +53,8 @@ public class CollaboratorService {
 
         collaboratorValidator.validateNewCollaboratorData(req.getRegistration());
 
+        collaboratorValidator.validateCollaboratorManager(req.getRegistration());
+
         Collaborator collaborator = collaboratorMapper.toEntity(req);
 
         if (collaborator != null) {
@@ -194,6 +196,10 @@ public class CollaboratorService {
 
         Collaborator existingCollaborator = collaboratorRepository.findByRegistration(registration).orElseThrow(
                 () -> new BadRequestException("Collaborator not found with registration: " + registration));
+        
+        collaboratorValidator.validateNewCollaboratorData(req.getRegistration());
+
+        collaboratorValidator.validateCollaboratorManager(req.getRegistration());
 
         collaboratorMapper.updateEntity(existingCollaborator, req);
 
