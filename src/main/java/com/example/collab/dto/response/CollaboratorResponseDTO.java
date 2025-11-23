@@ -31,6 +31,8 @@ public class CollaboratorResponseDTO {
     // Profissional
     private String position;
     private Integer department;
+    private boolean manager;
+    private boolean support_manager;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate admissionDate;

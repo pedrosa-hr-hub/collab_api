@@ -50,6 +50,12 @@ public class CollaboratorRequestDTO {
     @Size(max = 120)
     private Integer department;
 
+    @NotNull
+    private boolean manager;
+    
+    @NotNull
+    private boolean support_manager;
+
     @PastOrPresent
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate admissionDate;
