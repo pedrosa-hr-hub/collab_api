@@ -47,5 +47,4 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     Optional<Collaborator> findByRegistrationAndSupportManager(Integer registration, boolean support_manager);
 
-
 }
