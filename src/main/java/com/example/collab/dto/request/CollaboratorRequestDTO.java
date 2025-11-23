@@ -54,7 +54,7 @@ public class CollaboratorRequestDTO {
     private boolean manager;
     
     @NotNull
-    private boolean support_manager;
+    private boolean supportManager;
 
     @PastOrPresent
     @JsonFormat(pattern = "yyyy-MM-dd")
