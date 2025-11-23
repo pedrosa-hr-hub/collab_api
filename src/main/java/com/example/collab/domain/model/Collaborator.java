@@ -6,10 +6,7 @@ import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.domain.valueobject.contact.*;
 import com.example.collab.domain.valueobject.document.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -69,7 +66,9 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private String department;
+    @ManyToOne
+    @JoinColumn(name = "department_number", referencedColumnName = "number")
+    private Department department;
 
     @Getter
     @Setter
