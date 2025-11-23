@@ -97,7 +97,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private boolean support_manager;
+    private boolean supportManager;
 
     // ------------------------------------------------------------------//
 
