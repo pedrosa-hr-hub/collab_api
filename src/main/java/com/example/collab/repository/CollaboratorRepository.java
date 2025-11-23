@@ -45,6 +45,9 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Long
 
     void deleteByRegistration(Integer registration);
 
-    Optional<Collaborator> findByRegistrationAndManager(Integer registration, boolean cheff);
+    Optional<Collaborator> findByRegistrationAndManager(Integer registration, boolean manager);
+
+    Optional<Collaborator> findByRegistrationAndSupportManager(Integer registration, boolean support_manager);
+
 
 }
