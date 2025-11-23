@@ -203,7 +203,7 @@ public interface CollaboratorMapper {
     }
 
     @Named("toDepartment")
-    default Department toDepartment(String value) {
+    default Department toDepartment(Integer value) {
 
         return null;
 
@@ -309,7 +309,7 @@ public interface CollaboratorMapper {
     }
 
     @Named("fromDepartment")
-    default String fromDepartment(Department department) {
+    default Integer fromDepartment(Department department) {
 
         return department != null ? department.getName() : null;
 
