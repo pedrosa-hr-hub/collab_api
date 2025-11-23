@@ -62,7 +62,4 @@ public class DeparmentValidation {
         }
     }
 
-    public void validateDeparmenDate(Date intial_date, Date end_date){
-
-    }
 }
