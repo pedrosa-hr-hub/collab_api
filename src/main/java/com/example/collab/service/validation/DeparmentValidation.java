@@ -23,7 +23,7 @@ public class DeparmentValidation {
 
     }
 
-    public void validateDepartmentCheff(Integer registration, boolean manager){
+    public void validateDepartmentManager(Integer registration, boolean manager){
 
         if(collaboratorRepository.findByRegistrationAndManager(registration, true).isPresent()){
             
@@ -33,7 +33,7 @@ public class DeparmentValidation {
 
         }
 
-    public void validateDepartmentSupportCheff(String registration){
+    public void validateDepartmentSupportManager(String registration){
 
     }
 
