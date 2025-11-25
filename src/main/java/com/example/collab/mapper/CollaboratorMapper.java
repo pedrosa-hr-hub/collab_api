@@ -318,7 +318,7 @@ public interface CollaboratorMapper {
     @Named("fromDepartment")
     default Integer fromDepartment(Department department) {
 
-        return department != null ? department.getName() : null;
+        return department != null ? department.getNumber() : null;
 
     }
 
