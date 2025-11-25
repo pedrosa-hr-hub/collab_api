@@ -1,6 +1,6 @@
 package com.example.collab.domain.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -30,18 +30,18 @@ public class Department {
 
     @Getter
     @Setter
-    private Date initial_date;
+    private LocalDate initialDate;
 
     @Getter
     @Setter
-    private Date end_date;
+    private LocalDate endDate;
 
     @Getter
     @Setter
-    private Integer manager_registration;
+    private Integer managerRegistration;
 
     @Getter
     @Setter
-    private List<Integer> manager_suport_registration;
+    private List<Integer> managerSupportRegistration;
 
 }
