@@ -1,6 +1,6 @@
 package com.example.collab.domain.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import com.example.collab.domain.valueobject.banking.*;
 import com.example.collab.domain.valueobject.contact.*;
@@ -30,7 +30,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Getter
     @Setter
@@ -72,7 +72,7 @@ public class Collaborator {
 
     @Getter
     @Setter
-    private Date admissionDate;
+    private LocalDate admissionDate;
 
     @Getter
     @Setter
