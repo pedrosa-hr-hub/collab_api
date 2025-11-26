@@ -72,15 +72,6 @@ public class CollaboratorController {
 
     }
 
-    @GetMapping("/department/{department}")
-    public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByDepartment(@PathVariable String department) {
-
-        List<CollaboratorResponseDTO> response = collaboratorService.getCollaboratorByDepartment(department);
-
-        return ResponseEntity.status(HttpStatus.OK).body(response);
-
-    }
-
     @GetMapping("/position/{position}")
     public ResponseEntity<List<CollaboratorResponseDTO>> getCollaboratorsByPosition(@PathVariable String position) {
 

@@ -30,24 +30,26 @@ public class CollaboratorResponseDTO {
 
     // Profissional
     private String position;
-    private String department;
+    private Integer department;
+    private boolean manager;
+    private boolean supportManager;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate admissionDate;
 
     private String contractType;
-    private Double salary; // se sensível, omitir aqui
+    private Double salary; 
     private Integer registration;
     private String workload;
 
-    // Bancárias (avalie expor ou não)
+    // Bancárias 
     private String bank;
     private String agency;
     private String account;
     private String typeAccount;
     private String pix;
 
-    // Documentos (avalie expor ou mascarar)
+    // Documentos
     private String workWallet;
     private String voterRegistration;
     private String reservistCertificate;
