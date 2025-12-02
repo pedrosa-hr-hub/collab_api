@@ -7,14 +7,14 @@ import com.example.collab.repository.DepartmentRepository;
 import com.example.collab.repository.CollaboratorRepository;
 
 @Component
-public class DeparmentValidation {
+public class DepartmentValidator {
 
     private DepartmentRepository departmentRepository;
 
     private CollaboratorRepository collaboratorRepository;
 
     @Autowired
-    public DeparmentValidation(DepartmentRepository departmentRepository, CollaboratorRepository collaboratorRepository){
+    public DepartmentValidator(DepartmentRepository departmentRepository, CollaboratorRepository collaboratorRepository){
 
         this.departmentRepository = departmentRepository;
         this.collaboratorRepository = collaboratorRepository;
