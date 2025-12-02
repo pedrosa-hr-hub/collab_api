@@ -7,12 +7,12 @@ import com.example.collab.service.validation.DepartmentValidator;
 import com.example.collab.mapper.DepartmentMapper;
 
 @Service
-public class DeparmentService {
+public class DepartmentService {
 
     private DepartmentRepository departmentRepository;
 
     private DepartmentValidator departmentValidator;
 
     private DepartmentMapper departmentMapper;
- 
+
 }
