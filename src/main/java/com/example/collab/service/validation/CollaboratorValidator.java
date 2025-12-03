@@ -13,6 +13,7 @@ import com.example.collab.exception.domain.DuplicatedPixException;
 import com.example.collab.exception.domain.DuplicatedRGException;
 import com.example.collab.exception.domain.DuplicatedVoteRegistrationException;
 import com.example.collab.exception.domain.DuplicatedWorkWalletException;
+import com.example.collab.exception.domain.InvalidCollaboratorException;
 
 import com.example.collab.repository.CollaboratorRepository;
 
@@ -135,6 +136,20 @@ public class CollaboratorValidator {
                 throw new DuplicatedAccountException("Registration already exists");
 
             }
+        }
+
+    }
+
+    public void validateCollaboratorManager(Integer registration){
+        
+        if(registration != null){
+
+            if(collaboratorRepository.findByRegistrationAndSupportManager(registration, true).isPresent()) {
+
+                    throw new InvalidCollaboratorException("Collaborator not do Manager and Suppor Manager in same time"); 
+
+            }
+
         }
 
     }
