@@ -1,10 +1,14 @@
 package com.example.collab.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.collab.repository.DepartmentRepository;
 import com.example.collab.service.validation.DepartmentValidator;
 import com.example.collab.mapper.DepartmentMapper;
+import com.example.collab.dto.request.DepartmentRequestDTO;
+import com.example.collab.dto.response.DepartmentResponseDTO;
+import com.example.collab.domain.model.Department;
 
 @Service
 public class DepartmentService {
@@ -15,4 +19,40 @@ public class DepartmentService {
 
     private DepartmentMapper departmentMapper;
 
+    @Autowired
+    public DepartmentService(DepartmentRepository departmentRepository, DepartmentValidator departmentValidator, DepartmentMapper departmentMapper){
+
+        this.departmentRepository = departmentRepository;
+
+        this.departmentValidator = departmentValidator;
+
+        this.departmentMapper = departmentMapper;
+
+    }
+
+    public DepartmentResponseDTO createDepartment(DepartmentRequestDTO req){
+
+        departmentValidator.validateDepartmentName(req.getName());
+
+        departmentValidator.validateDepartmentNumber(req.getNumber());
+
+        departmentValidator.validateDepartmentManager(req.getManagerRegistration());
+
+        for(Integer registration : req.getManagerSupportRegistration()){
+
+           departmentValidator.validateDepartmentSupportManager(registration);
+
+         }
+
+        Department department = departmentMapper.toEntity(req);
+
+        if(department != null){
+            
+            Department savedDepartment = departmentRepository.save(department);
+
+            return departmentMapper.toResponse(savedDepartment); 
+        }
+       
+        throw new RuntimeException("Error creating department");
+    } 
 }
