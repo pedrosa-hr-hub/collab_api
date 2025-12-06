@@ -10,6 +10,8 @@ import com.example.collab.dto.request.DepartmentRequestDTO;
 import com.example.collab.dto.response.DepartmentResponseDTO;
 import com.example.collab.domain.model.Department;
 
+import java.util.List;
+
 @Service
 public class DepartmentService {
 
@@ -54,5 +56,18 @@ public class DepartmentService {
         }
        
         throw new RuntimeException("Error creating department");
-    } 
+    }
+
+    public List<DepartmentResponseDTO> getAllDepartments(){
+        
+        List<Department> departments = departmentRepository.findAll();
+
+        if(departments.isEmpty()){
+             
+            throw new RuntimeException("Department not found");
+        }
+
+        return departments.stream().map(department -> departmentMapper.toResponse(department)).toList();
+
+    }
 }
