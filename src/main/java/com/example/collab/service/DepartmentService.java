@@ -79,4 +79,13 @@ public class DepartmentService {
         return departmentMapper.toResponse(department);
 
     }
+
+    public DepartmentResponseDTO getDepartmentByName(String name){
+
+        Department department = departmentRepository.findByName(name)
+        .orElseThrow(() -> new RuntimeException("Department name not found"));
+
+        return departmentMapper.toResponse(department);
+
+    }  
 }
