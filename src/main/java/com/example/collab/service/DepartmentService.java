@@ -70,4 +70,13 @@ public class DepartmentService {
         return departments.stream().map(department -> departmentMapper.toResponse(department)).toList();
 
     }
+
+    public DepartmentResponseDTO getDepartmentByNumber(Integer number){
+
+        Department department = departmentRepository.findByNumber(number)
+        .orElseThrow(() -> new RuntimeException("Department number not found"));
+
+        return departmentMapper.toResponse(department);
+
+    }
 }
