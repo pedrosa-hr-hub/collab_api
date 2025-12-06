@@ -119,21 +119,6 @@ public class CollaboratorService {
                 .toList();
     }
 
-    public List<CollaboratorResponseDTO> getCollaboratorByDepartment(String department) {
-
-        List<Collaborator> collaborators = collaboratorRepository.findByDepartment(department);
-
-        if (collaborators.isEmpty()) {
-
-            throw new NotFoundCollaboratorException("Department not found");
-
-        }
-
-        return collaborators.stream()
-                .map(collaborator -> collaboratorMapper.toResponse(collaborator))
-                .toList();
-    }
-
     public List<CollaboratorResponseDTO> getCollaboratorByPosition(String position) {
 
         List<Collaborator> collaborators = collaboratorRepository.findByPosition(position);
